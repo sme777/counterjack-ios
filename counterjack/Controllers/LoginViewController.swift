@@ -20,7 +20,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         emailOrUsernameTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-            
+        
+        emailOrUsernameTextField.becomeFirstResponder()
         invalidCredentialsLabel.isHidden = true
         
     }

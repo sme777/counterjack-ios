@@ -12,7 +12,13 @@ import Foundation
 struct K {
     
     struct Segues {
+        static let startLogIn = "startLogIn"
         static let logIn = "logInSuccess"
+        static let startLogInsignup = "startSignUp"
+        static let continueSignUp = "continueSignUp"
+        static let finishSignUp = "signUpSuccess"
+        static let guestLogIn = "guestLogIn"
+        
     }
     
 }

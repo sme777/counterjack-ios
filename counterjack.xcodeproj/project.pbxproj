@@ -26,6 +26,12 @@
 		E7B75A0925596DE3008D5136 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0825596DE3008D5136 /* Constants.swift */; };
 		E7B75A0A25596DE3008D5136 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0825596DE3008D5136 /* Constants.swift */; };
 		E7B75A0B25596DE3008D5136 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0825596DE3008D5136 /* Constants.swift */; };
+		E7B75A0D25598089008D5136 /* SignUp1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0C25598089008D5136 /* SignUp1ViewController.swift */; };
+		E7B75A0E25598089008D5136 /* SignUp1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0C25598089008D5136 /* SignUp1ViewController.swift */; };
+		E7B75A0F25598089008D5136 /* SignUp1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0C25598089008D5136 /* SignUp1ViewController.swift */; };
+		E7B75A112559809B008D5136 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A102559809B008D5136 /* SignUp2ViewController.swift */; };
+		E7B75A122559809B008D5136 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A102559809B008D5136 /* SignUp2ViewController.swift */; };
+		E7B75A132559809B008D5136 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A102559809B008D5136 /* SignUp2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +78,8 @@
 		E7186D822558232800CF6A81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E7B75A0425596AA5008D5136 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E7B75A0825596DE3008D5136 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E7B75A0C25598089008D5136 /* SignUp1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp1ViewController.swift; sourceTree = "<group>"; };
+		E7B75A102559809B008D5136 /* SignUp2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2ViewController.swift; sourceTree = "<group>"; };
 		F8F65A7E499FFB7E20A537FD /* Pods-counterjackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counterjackTests.release.xcconfig"; path = "Target Support Files/Pods-counterjackTests/Pods-counterjackTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +204,8 @@
 			children = (
 				E7186D502558180D00CF6A81 /* InitialViewController.swift */,
 				E7186D822558232800CF6A81 /* LoginViewController.swift */,
+				E7B75A0C25598089008D5136 /* SignUp1ViewController.swift */,
+				E7B75A102559809B008D5136 /* SignUp2ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -450,10 +460,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B75A0D25598089008D5136 /* SignUp1ViewController.swift in Sources */,
 				E7186D512558180D00CF6A81 /* InitialViewController.swift in Sources */,
 				E7186D572558180D00CF6A81 /* counterjack.xcdatamodeld in Sources */,
 				E7186D4D2558180D00CF6A81 /* AppDelegate.swift in Sources */,
 				E7186D832558232800CF6A81 /* LoginViewController.swift in Sources */,
+				E7B75A112559809B008D5136 /* SignUp2ViewController.swift in Sources */,
 				E7186D4F2558180D00CF6A81 /* SceneDelegate.swift in Sources */,
 				E7B75A0925596DE3008D5136 /* Constants.swift in Sources */,
 			);
@@ -463,6 +475,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B75A0E25598089008D5136 /* SignUp1ViewController.swift in Sources */,
+				E7B75A122559809B008D5136 /* SignUp2ViewController.swift in Sources */,
 				E7186D672558181100CF6A81 /* counterjackTests.swift in Sources */,
 				E7B75A0A25596DE3008D5136 /* Constants.swift in Sources */,
 			);
@@ -472,6 +486,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B75A0F25598089008D5136 /* SignUp1ViewController.swift in Sources */,
+				E7B75A132559809B008D5136 /* SignUp2ViewController.swift in Sources */,
 				E7186D722558181100CF6A81 /* counterjackUITests.swift in Sources */,
 				E7B75A0B25596DE3008D5136 /* Constants.swift in Sources */,
 			);
