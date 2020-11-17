@@ -6,7 +6,7 @@
 //  Copyright © 2020 Samson Petrosyan. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
 class AI {

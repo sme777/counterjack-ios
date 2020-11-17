@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct Card {
+struct Card: Equatable {
     var suit: String
     var face: String
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.suit == rhs.suit && lhs.face == rhs.face
+    }
 }
