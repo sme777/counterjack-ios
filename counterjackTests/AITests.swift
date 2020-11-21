@@ -108,6 +108,54 @@ class AITests: XCTestCase {
         XCTAssertEqual(ai.getDealerCards().count, 0)
     }
     
+    func testCorrectCountForAces() {
+        let cards = [Card(suit: "H", face: "A"), Card(suit: "S", face: "A")]
+        let ai = AI()
+        let res = ai.count(cards)
+        XCTAssertEqual(res, 12)
+        
+        let cards2 = [Card(suit: "H", face: "A"), Card(suit: "S", face: "A"),
+                    Card(suit: "C", face: "A"), Card(suit: "D", face: "A")]
+        let res2 = ai.count(cards2)
+        XCTAssertEqual(res2, 14)
+    }
+    
+    func testCorrectCountForNumbers() {
+        let cards = [Card(suit: "H", face: "2"), Card(suit: "S", face: "5")]
+        let ai = AI()
+        let res = ai.count(cards)
+        XCTAssertEqual(res, 7)
+        
+        let cards2 = [Card(suit: "H", face: "5"), Card(suit: "S", face: "9"),
+                    Card(suit: "C", face: "7"), Card(suit: "D", face: "4")]
+        let res2 = ai.count(cards2)
+        XCTAssertEqual(res2, 25)
+    }
+    
+    func testCorrectCountForFaces() {
+        let cards = [Card(suit: "H", face: "J"), Card(suit: "S", face: "J")]
+        let ai = AI()
+        let res = ai.count(cards)
+        XCTAssertEqual(res, 20)
+        
+        let cards2 = [Card(suit: "H", face: "Q"), Card(suit: "S", face: "K"),
+                    Card(suit: "C", face: "Q"), Card(suit: "D", face: "J")]
+        let res2 = ai.count(cards2)
+        XCTAssertEqual(res2, 40)
+    }
+    
+    func testCorrectCountForAll() {
+        let cards = [Card(suit: "H", face: "A"), Card(suit: "S", face: "J")]
+        let ai = AI()
+        let res = ai.count(cards)
+        XCTAssertEqual(res, 21)
+        
+        let cards2 = [Card(suit: "H", face: "2"), Card(suit: "S", face: "K"),
+                    Card(suit: "C", face: "A"), Card(suit: "D", face: "A")]
+        let res2 = ai.count(cards2)
+        XCTAssertEqual(res2, 14)
+    }
+    
     func testCorrectSplit() {
         
     }
@@ -125,7 +173,20 @@ class AITests: XCTestCase {
     }
     
     func testCorrectHardMove() {
-        
+        let card1 = Card(suit: "H", face: "10")
+        let card2 = Card(suit: "S", face: "5")
+        let card3 = Card(suit: "C", face: "7")
+        let card4 = Card(suit: "D", face: "4")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addDealerCard(card3)
+        let action = ai.hard()
+        XCTAssertEqual(action, Action.HIT)
+        ai.removeDealerCard(card3)
+        ai.addDealerCard(card4)
+        let action2 = ai.hard()
+        XCTAssertEqual(action2, Action.STAND)
     }
     
     func testIncorrectHardMove() {

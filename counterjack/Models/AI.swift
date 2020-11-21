@@ -14,6 +14,7 @@ class AI {
     private var betChoice: Int
     private var doubleAfterSplit: Bool
     private var bankroll: Double
+    private var cardFaces: Array<String> = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
     private var currentCards: Array<Card> = []
     private var dealerCards: Array<Card> = []
     
@@ -80,20 +81,20 @@ class AI {
         dealerCards.removeAll()
     }
     
-    public func move() -> String? {
+    public func move() -> Action? {
         if !isValid() {
             return nil
         } else if currentCards[0].face == currentCards[1].face {
             return split()
         } else if isSoft() {
             if isSurrender() {
-                return "surrender"
+                return Action.SURRENDER
             } else {
                 return soft()
             }
         } else {
             if isSurrender() {
-                return "surrender"
+                return Action.SURRENDER
             } else {
                 return hard()
             }
@@ -126,25 +127,113 @@ class AI {
         }
     }
     // TODO: splits cards
-    private func split() -> String {
-        return ""
+    private func split() -> Action {
+        return Action.STAND
     }
     // TODO: moves on soft cards
-    private func soft() -> String {
-        return ""
+    private func soft() -> Action {
+        return Action.STAND
     }
     
-    // TODO: moves on hard cards
-    private func hard() -> String {
-        return ""
+
+    public func hard() -> Action {
+        
+        let value = count(currentCards)
+        
+        if value == 17 {
+            return Action.STAND
+        } else if isValue(value: value, from: 13, to: 16) {
+            if inRange(from: "2", to: "6") {
+                return Action.STAND
+            } else {
+                return Action.HIT
+            }
+        } else if value == 12 {
+            if inRange(from: "4", to: "6") {
+                return Action.STAND
+            } else {
+                return Action.HIT
+            }
+        } else if value == 11 {
+            return Action.DOUBLE
+        } else if value == 10 {
+            if inRange(from: "10", to: "A") {
+                return Action.HIT
+            } else {
+                return Action.DOUBLE
+            }
+        } else if value == 9 {
+            if inRange(from: "3", to: "6") {
+                return Action.DOUBLE
+            } else {
+                return Action.HIT
+            }
+        } else if value == 8 {
+            return Action.HIT
+        } else if value > 17 {
+            if value == 21 {
+                return Action.BLACKJACK
+            } else if value > 21 {
+                return Action.BUST
+            } else {
+                return Action.STAND
+            }
+        } else {
+            return Action.HIT
+        }
     }
-    // TODO: counts hand cards
-    private func count(_ cards: Array<Card>) -> Int {
-        return 0
+
+    public func count(_ cards: Array<Card>) -> Int {
+        var sum = 0
+        var aces: Array<Card> = []
+        for i in 0..<cards.count {
+            if cards[i].face == "J" || cards[i].face == "Q" || cards[i].face == "K" {
+                sum += 10
+            } else if cards[i].face != "A" {
+                sum += Int(cards[i].face) ?? 0
+            } else {
+                aces.append(cards[i])
+            }
+        }
+        
+        for _ in 0..<aces.count {
+            if sum + 11 > 21 {
+                sum += 1
+            } else if sum + 11 <= 21 && aces.count == 1 {
+                sum += 11
+            } else if sum + 11 <= 21 && aces.count != 1 {
+                if sum + 10 + aces.count > 21 {
+                    sum += 1
+                } else {
+                    sum += 11
+                }
+            } else {
+                sum += 1
+            }
+        }
+        
+        return sum
     }
     
-    // TODO: check is any of the cards in range is Dealers card
+    
+    private func isValue(value: Int, from: Int, to: Int) -> Bool {
+        for i in from...to {
+            if i == value {
+                return true
+            }
+        }
+        return false
+    }
+    
+
     private func inRange(from: String, to: String) -> Bool {
+        let start: Int = cardFaces.firstIndex{$0 == from}!
+        let end: Int = cardFaces.firstIndex{$0 == to}!
+        for i in start...end {
+            if cardFaces[i] == dealerCards[0].face {
+                return true
+            }
+        }
         return false
     }
     // MARK: - Getter methods

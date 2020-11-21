@@ -496,7 +496,7 @@
             <objects>
                 <viewController id="FNq-Xf-9Ih" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hcn-01-WY2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cl4-OJ-wxQ"/>
@@ -690,6 +690,6 @@
         <image name="userpic" width="640" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6zd-ok-oOm"/>
+        <segue reference="Y2l-lj-6JF"/>
     </inferredMetricsTieBreakers>
 </document>
