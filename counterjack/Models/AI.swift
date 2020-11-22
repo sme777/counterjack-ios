@@ -26,6 +26,12 @@ class AI {
         self.bankroll = 5000
     }
     
+    init(doubleAfterSplit: Bool) {
+        self.betChoice = 1
+        self.doubleAfterSplit = doubleAfterSplit
+        self.bankroll = 5000
+    }
+    
     init(betChoice: Int) {
         self.betChoice = betChoice
         self.doubleAfterSplit = true
@@ -84,8 +90,18 @@ class AI {
     public func move() -> Action? {
         if !isValid() {
             return nil
-        } else if currentCards[0].face == currentCards[1].face {
-            return split()
+        } else if faceValue(currentCards[0].face) == faceValue(currentCards[1].face) {
+            //return split()
+            if let willSplit = split() {
+                if willSplit == Action.NOSPLIT {
+                    return hard()
+                } else {
+                    return willSplit
+                }
+            } else {
+                //what happens when split() returns nil
+                return Action.STAND
+            }
         } else if isSoft() {
             if isSurrender() {
                 return Action.SURRENDER
@@ -126,9 +142,68 @@ class AI {
             return false
         }
     }
-    // TODO: splits cards
-    private func split() -> Action {
-        return Action.STAND
+    
+    public func split() -> Action? {
+        let card = currentCards[0]
+        switch card.face {
+        case "A",
+             "8":
+            return Action.SPLIT
+        case "K",
+             "Q",
+             "J",
+             "10",
+             "5":
+            return Action.NOSPLIT
+        case "9":
+            if inRange(from: "10", to: "A") || inRange(from: "7", to: "7") {
+                return Action.NOSPLIT
+            } else {
+                return Action.SPLIT
+            }
+        case "7":
+            if inRange(from: "8", to: "A") {
+                return Action.NOSPLIT
+            } else {
+                return Action.SPLIT
+            }
+        case "6":
+            if self.doubleAfterSplit && inRange(from: "2", to: "2") {
+                return Action.SPLIT
+            } else if inRange(from: "7", to: "A") {
+                return Action.NOSPLIT
+            } else {
+                return Action.SPLIT
+            }
+        case "4":
+            if self.doubleAfterSplit {
+                if inRange(from: "5", to: "6") {
+                    return Action.SPLIT
+                } else {
+                    return Action.NOSPLIT
+                }
+            } else {
+                return Action.NOSPLIT
+            }
+        case "3":
+            if doubleAfterSplit && inRange(from: "2", to: "3") {
+                return Action.SPLIT
+            } else if inRange(from: "4", to: "7") {
+                return Action.SPLIT
+            } else {
+                return Action.NOSPLIT
+            }
+        case "2":
+            if doubleAfterSplit && inRange(from: "2", to: "3") {
+                return Action.SPLIT
+            } else if inRange(from: "4", to: "7") {
+                return Action.SPLIT
+            } else {
+                return Action.NOSPLIT
+            }
+        default:
+             return nil
+        }
     }
     // TODO: moves on soft cards
     private func soft() -> Action {
@@ -215,6 +290,18 @@ class AI {
         return sum
     }
     
+    
+    
+    private func faceValue(_ value: String) -> Int {
+        //let index: Int = cardFaces.firstIndex{$0 == value}!
+        var parsed = Int(value) ?? 0
+        if value == "A" && parsed == 0 {
+            parsed = 11
+        } else if parsed == 0 {
+            parsed = 10
+        }
+        return parsed
+    }
     
     private func isValue(value: Int, from: Int, to: Int) -> Bool {
         for i in from...to {

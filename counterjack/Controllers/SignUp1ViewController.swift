@@ -68,7 +68,16 @@ class SignUp1ViewController: UIViewController {
         }
     }
 
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is SignUp2ViewController {
+            let vc = segue.destination as! SignUp2ViewController
+            vc.password = passwordTextField.text!
+            vc.email = emailTextField.text!
+            vc.name = nameTextField.text!
+        }
+    }
+    
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -80,7 +89,7 @@ class SignUp1ViewController: UIViewController {
         if password.count <= 8 {
             return false
         }
-        if password.range(of: "[a-zA-Z]*[a-z]+[A-Z]+[a-zA-Z]*", options: .regularExpression, range: nil, locale: nil) == nil {
+        if password.range(of: "[a-zA-Z0-9]*[a-z0-9]+[A-Z0-9]+[a-zA-Z0-9]*", options: .regularExpression, range: nil, locale: nil) == nil {
             return false
         }
         

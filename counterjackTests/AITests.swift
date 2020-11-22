@@ -172,7 +172,7 @@ class AITests: XCTestCase {
         
     }
     
-    func testCorrectHardMove() {
+    func testCorrectHardMove1() {
         let card1 = Card(suit: "H", face: "10")
         let card2 = Card(suit: "S", face: "5")
         let card3 = Card(suit: "C", face: "7")
@@ -189,9 +189,75 @@ class AITests: XCTestCase {
         XCTAssertEqual(action2, Action.STAND)
     }
     
-    func testIncorrectHardMove() {
-        
+    
+    func testCorrectSplitMove1() {
+        let card1 = Card(suit: "H", face: "10")
+        let card2 = Card(suit: "S", face: "10")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        let action = ai.split()
+        XCTAssertEqual(action, Action.NOSPLIT)
     }
+    
+    func testCorrectSplitMove2() {
+        let card1 = Card(suit: "H", face: "A")
+        let card2 = Card(suit: "S", face: "A")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        let action = ai.split()
+        XCTAssertEqual(action, Action.SPLIT)
+    }
+    
+    func testCorrectSplitMove3() {
+        let card1 = Card(suit: "H", face: "9")
+        let card2 = Card(suit: "S", face: "9")
+        let card3 = Card(suit: "C", face: "7")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addDealerCard(card3)
+        let action = ai.split()
+        XCTAssertEqual(action, Action.NOSPLIT)
+    }
+    
+    func testCorrectSplitMove4() {
+        let card1 = Card(suit: "H", face: "4")
+        let card2 = Card(suit: "S", face: "4")
+        let card3 = Card(suit: "C", face: "6")
+        let ai = AI(betChoice: 5000, doubleAfterSplit: false)
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addDealerCard(card3)
+        let action = ai.split()
+        XCTAssertEqual(action, Action.NOSPLIT)
+    }
+    
+    func testCorrectSplitMove5() {
+        let card1 = Card(suit: "H", face: "4")
+        let card2 = Card(suit: "S", face: "4")
+        let card3 = Card(suit: "C", face: "6")
+        let ai = AI(betChoice: 5000, doubleAfterSplit: true)
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addDealerCard(card3)
+        let action = ai.split()
+        XCTAssertEqual(action, Action.SPLIT)
+    }
+    
+    func testCorrectSplitMove6() {
+        let card1 = Card(suit: "H", face: "9")
+        let card2 = Card(suit: "S", face: "9")
+        let card3 = Card(suit: "C", face: "A")
+        let ai = AI(betChoice: 5000, doubleAfterSplit: true)
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addDealerCard(card3)
+        let action = ai.split()
+        XCTAssertEqual(action, Action.NOSPLIT)
+    }
+    
     
     func testCorrectSurrenderMove() {
         
