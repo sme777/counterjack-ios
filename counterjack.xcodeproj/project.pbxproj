@@ -20,6 +20,7 @@
 		E7186D672558181100CF6A81 /* counterjackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D662558181100CF6A81 /* counterjackTests.swift */; };
 		E7186D722558181100CF6A81 /* counterjackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D712558181100CF6A81 /* counterjackUITests.swift */; };
 		E7186D832558232800CF6A81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D822558232800CF6A81 /* LoginViewController.swift */; };
+		E749AF5B256C1F1A00908E1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749AF5A256C1F1A00908E1A /* User.swift */; };
 		E78AE04F2569CD49004BF1CA /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE04E2569CD49004BF1CA /* Action.swift */; };
 		E78AE051256AFF53004BF1CA /* DatabaseCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE050256AFF53004BF1CA /* DatabaseCalls.swift */; };
 		E78AE053256B037A004BF1CA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE052256B037A004BF1CA /* HomeViewController.swift */; };
@@ -90,6 +91,7 @@
 		E7186D712558181100CF6A81 /* counterjackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = counterjackUITests.swift; sourceTree = "<group>"; };
 		E7186D732558181100CF6A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7186D822558232800CF6A81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E749AF5A256C1F1A00908E1A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E78AE04E2569CD49004BF1CA /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		E78AE050256AFF53004BF1CA /* DatabaseCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCalls.swift; sourceTree = "<group>"; };
 		E78AE052256B037A004BF1CA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				E7C3F2C82564625C00A4C4F9 /* Dealer.swift */,
 				E7C3F2CA2564634B00A4C4F9 /* Deck.swift */,
 				E78AE04E2569CD49004BF1CA /* Action.swift */,
+				E749AF5A256C1F1A00908E1A /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				E78AE04F2569CD49004BF1CA /* Action.swift in Sources */,
 				E7B75A0925596DE3008D5136 /* Constants.swift in Sources */,
 				E7C3F2C72561E5D500A4C4F9 /* Card.swift in Sources */,
+				E749AF5B256C1F1A00908E1A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

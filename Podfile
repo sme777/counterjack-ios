@@ -11,6 +11,7 @@ target 'counterjack' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Firebase/Analytics'
+  pod 'RealmSwift'
   
 
   # Pods for counterjack

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import RealmSwift
 
 class SignUp2ViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -18,6 +19,7 @@ class SignUp2ViewController: UIViewController {
     var name: String!
     var password: String!
     var email: String!
+    let realm = try! Realm()
     
     private let auth = Auth.auth()
     private let db = Firestore.firestore()
@@ -25,6 +27,7 @@ class SignUp2ViewController: UIViewController {
     override func viewDidLoad() {
         profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 5
         usernameErrorLabel.isHidden = true
+        
     }
     @IBAction func signupButtonPressed(_ sender: UIButton) {
         validateUsername()
@@ -37,12 +40,13 @@ class SignUp2ViewController: UIViewController {
                 }
                 if let r = res {
                     let id = r.user.uid
+                    let date: TimeInterval = Date().timeIntervalSince1970
                     //w/o picture
                     self.db.collection("Users").document(id).setData([
                         "Name" : self.name!,
                         "Email" : self.email!,
                         "ID" : id,
-                        "Creation" : Date().timeIntervalSince1970,
+                        "Creation" : date,
                         "Friends" : [String](),
                         "Rank" : 0,
                         "Posts" : [String : Any](),
@@ -53,7 +57,20 @@ class SignUp2ViewController: UIViewController {
                             print(e.localizedDescription)
                         }
                     }
+                    
+                    
+                    //TODO: persist on a local db
+                    let newUser = User()
+                    newUser.name = self.name!
+                    newUser.email = self.email!
+                    newUser.id = id
+                    newUser.date = date
+                    
+                    self.realm.add(newUser)
                 }
+                
+                
+
                 //probably should add here
             }
             
