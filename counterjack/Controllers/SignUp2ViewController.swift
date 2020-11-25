@@ -60,13 +60,13 @@ class SignUp2ViewController: UIViewController {
                     
                     
                     //TODO: persist on a local db
-                    let newUser = User()
-                    newUser.name = self.name!
-                    newUser.email = self.email!
-                    newUser.id = id
-                    newUser.date = date
+                    //let newUser = User()
+                    //newUser.name = self.name!
+                    //newUser.email = self.email!
+                    //newUser.id = id
+                    //newUser.date = date
                     
-                    self.realm.add(newUser)
+                    //self.realm.add(newUser)
                 }
                 
                 

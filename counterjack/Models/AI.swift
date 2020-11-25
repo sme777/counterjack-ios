@@ -106,7 +106,8 @@ class AI {
             if isSurrender() {
                 return Action.SURRENDER
             } else {
-                return soft()
+                
+                return soft(cards: currentCards)
             }
         } else {
             if isSurrender() {
@@ -206,8 +207,75 @@ class AI {
         }
     }
     // TODO: moves on soft cards
-    private func soft() -> Action {
-        return Action.STAND
+    public func soft(cards: Array<Card>) -> Action {
+        
+        if cards.count == 2 {
+            switch fetchNotAce() {
+            case "9":
+                return Action.STAND
+            case "8":
+                if inRange(from: "6", to: "6") {
+                    return Action.DOUBLE
+                } else {
+                    return Action.STAND
+                }
+            case "7":
+                if inRange(from: "9", to: "A") {
+                    return Action.HIT
+                } else if inRange(from: "7", to: "8") {
+                    return Action.STAND
+                } else {
+                    return Action.STAND
+                }
+            case "6":
+                if inRange(from: "3", to: "6") {
+                    return Action.DOUBLE
+                } else {
+                    return Action.HIT
+                }
+            case "5":
+                if inRange(from: "4", to: "6") {
+                    return Action.DOUBLE
+                } else {
+                    return Action.HIT
+                }
+            case "4":
+                if inRange(from: "4", to: "6") {
+                    return Action.DOUBLE
+                } else {
+                    return Action.HIT
+                }
+            case "3":
+                if inRange(from: "5", to: "6") {
+                    return Action.DOUBLE
+                } else {
+                    return Action.HIT
+                }
+            case "2":
+                if inRange(from: "5", to: "6") {
+                    return Action.DOUBLE
+                } else {
+                    return Action.HIT
+                }
+            //case "":
+            default:
+                return Action.BLACKJACK
+            }
+        } else {
+            let aces = countAces()
+            var counts = count(currentCards, shouldCountAces: false)
+            
+            if counts + (10 + aces) > 21 {
+                counts += aces
+                return hard()
+            } else {
+                var tempCards: Array<Card> = []
+                tempCards.append(Card(suit: "M", face: "A"))
+                tempCards.append(Card(suit: "M", face: String(counts + 1)))
+                return soft(cards: tempCards)
+                //makes a recursive call to soft
+            }
+        }
     }
     
 
@@ -258,7 +326,7 @@ class AI {
         }
     }
 
-    public func count(_ cards: Array<Card>) -> Int {
+    public func count(_ cards: Array<Card>, shouldCountAces: Bool=true) -> Int {
         var sum = 0
         var aces: Array<Card> = []
         for i in 0..<cards.count {
@@ -270,27 +338,36 @@ class AI {
                 aces.append(cards[i])
             }
         }
-        
-        for _ in 0..<aces.count {
-            if sum + 11 > 21 {
-                sum += 1
-            } else if sum + 11 <= 21 && aces.count == 1 {
-                sum += 11
-            } else if sum + 11 <= 21 && aces.count != 1 {
-                if sum + 10 + aces.count > 21 {
+        if shouldCountAces {
+            for _ in 0..<aces.count {
+                if sum + 11 > 21 {
                     sum += 1
-                } else {
+                } else if sum + 11 <= 21 && aces.count == 1 {
                     sum += 11
+                } else if sum + 11 <= 21 && aces.count != 1 {
+                    if sum + 10 + aces.count > 21 {
+                        sum += 1
+                    } else {
+                        sum += 11
+                    }
+                } else {
+                    sum += 1
                 }
-            } else {
-                sum += 1
             }
         }
         
         return sum
     }
     
-    
+    private func countAces() -> Int {
+        var aces = 0
+        for i in 0..<currentCards.count {
+            if currentCards[i].face == "A" {
+                aces += 1
+            }
+        }
+        return aces
+    }
     
     private func faceValue(_ value: String) -> Int {
         //let index: Int = cardFaces.firstIndex{$0 == value}!
@@ -301,6 +378,18 @@ class AI {
             parsed = 10
         }
         return parsed
+    }
+    
+    private func fetchNotAce() -> String {
+        var fetchedFace = ""
+        for i in 0..<currentCards.count {
+            if currentCards[i].face == "A" {
+                continue
+            } else {
+                fetchedFace = currentCards[i].face
+            }
+        }
+        return fetchedFace
     }
     
     private func isValue(value: Int, from: Int, to: Int) -> Bool {

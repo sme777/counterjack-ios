@@ -156,21 +156,69 @@ class AITests: XCTestCase {
         XCTAssertEqual(res2, 14)
     }
     
-    func testCorrectSplit() {
-        
+    
+    func testCorrectSoftMove1() {
+        let card1 = Card(suit: "H", face: "A")
+        let card2 = Card(suit: "S", face: "9")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        let action = ai.soft(cards: ai.getCurrentCards())
+        XCTAssertEqual(action, Action.STAND)
     }
     
-    func testIncorrectSplit() {
-        
+    func testCorrectSoftMove2() {
+        let card1 = Card(suit: "H", face: "A")
+        let card2 = Card(suit: "S", face: "5")
+        let card3 = Card(suit: "C", face: "3")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addDealerCard(card3)
+        let action = ai.soft(cards: ai.getCurrentCards())
+        XCTAssertEqual(action, Action.HIT)
     }
     
-    func testCorrectSoftMove() {
-        
+    func testCorrectSoftMove3() {
+        let card1 = Card(suit: "H", face: "A")
+        let card2 = Card(suit: "S", face: "5")
+        let card3 = Card(suit: "C", face: "5")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addDealerCard(card3)
+        let action = ai.soft(cards: ai.getCurrentCards())
+        XCTAssertEqual(action, Action.DOUBLE)
     }
     
-    func testIncorrectSoftMove() {
-        
+    func testCorrectSoftMove4() {
+        let card1 = Card(suit: "H", face: "A")
+        let card2 = Card(suit: "D", face: "A")
+        let card3 = Card(suit: "S", face: "5")
+        let card4 = Card(suit: "C", face: "5")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addCurrentCard(card3)
+        ai.addDealerCard(card4)
+        let action = ai.soft(cards: ai.getCurrentCards())
+        XCTAssertEqual(action, Action.DOUBLE)
     }
+    
+    func testCorrectSoftMove5() {
+        let card1 = Card(suit: "H", face: "A")
+        let card2 = Card(suit: "D", face: "A")
+        let card3 = Card(suit: "S", face: "5")
+        let card4 = Card(suit: "C", face: "K")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addCurrentCard(card3)
+        ai.addDealerCard(card4)
+        let action = ai.soft(cards: ai.getCurrentCards())
+        XCTAssertEqual(action, Action.HIT)
+    }
+    
     
     func testCorrectHardMove1() {
         let card1 = Card(suit: "H", face: "10")
@@ -259,11 +307,4 @@ class AITests: XCTestCase {
     }
     
     
-    func testCorrectSurrenderMove() {
-        
-    }
-    
-    func testIncorrectSurrenderMove() {
-        
-    }
 }
