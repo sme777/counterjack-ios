@@ -66,8 +66,7 @@ class AITests: XCTestCase {
         let ai = AI()
         let card1 = Card(suit: "H", face: "A")
         let card2 = Card(suit: "S", face: "2")
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         XCTAssertEqual(ai.getCurrentCards()[0], card1)
         XCTAssertEqual(ai.getCurrentCards()[1], card2)
         ai.removeCard(card1)
@@ -100,8 +99,7 @@ class AITests: XCTestCase {
         ai.addDealerCard(card2)
         let card3 = Card(suit: "C", face: "A")
         let card4 = Card(suit: "D", face: "9")
-        ai.addCurrentCard(card3)
-        ai.addCurrentCard(card4)
+        ai.addCurrentCards(card3, card4)
         ai.removeAllCards()
         XCTAssertEqual(ai.getCurrentCards().count, 0)
         ai.removeAllDealerCards()
@@ -110,49 +108,45 @@ class AITests: XCTestCase {
     
     func testCorrectCountForAces() {
         let cards = [Card(suit: "H", face: "A"), Card(suit: "S", face: "A")]
-        let ai = AI()
-        let res = ai.count(cards)
+        let res = GameFunctions.count(cards)
         XCTAssertEqual(res, 12)
         
         let cards2 = [Card(suit: "H", face: "A"), Card(suit: "S", face: "A"),
                     Card(suit: "C", face: "A"), Card(suit: "D", face: "A")]
-        let res2 = ai.count(cards2)
+        let res2 = GameFunctions.count(cards2)
         XCTAssertEqual(res2, 14)
     }
     
     func testCorrectCountForNumbers() {
         let cards = [Card(suit: "H", face: "2"), Card(suit: "S", face: "5")]
-        let ai = AI()
-        let res = ai.count(cards)
+        let res = GameFunctions.count(cards)
         XCTAssertEqual(res, 7)
         
         let cards2 = [Card(suit: "H", face: "5"), Card(suit: "S", face: "9"),
                     Card(suit: "C", face: "7"), Card(suit: "D", face: "4")]
-        let res2 = ai.count(cards2)
+        let res2 = GameFunctions.count(cards2)
         XCTAssertEqual(res2, 25)
     }
     
     func testCorrectCountForFaces() {
         let cards = [Card(suit: "H", face: "J"), Card(suit: "S", face: "J")]
-        let ai = AI()
-        let res = ai.count(cards)
+        let res = GameFunctions.count(cards)
         XCTAssertEqual(res, 20)
         
         let cards2 = [Card(suit: "H", face: "Q"), Card(suit: "S", face: "K"),
                     Card(suit: "C", face: "Q"), Card(suit: "D", face: "J")]
-        let res2 = ai.count(cards2)
+        let res2 = GameFunctions.count(cards2)
         XCTAssertEqual(res2, 40)
     }
     
     func testCorrectCountForAll() {
         let cards = [Card(suit: "H", face: "A"), Card(suit: "S", face: "J")]
-        let ai = AI()
-        let res = ai.count(cards)
+        let res = GameFunctions.count(cards)
         XCTAssertEqual(res, 21)
         
         let cards2 = [Card(suit: "H", face: "2"), Card(suit: "S", face: "K"),
                     Card(suit: "C", face: "A"), Card(suit: "D", face: "A")]
-        let res2 = ai.count(cards2)
+        let res2 = GameFunctions.count(cards2)
         XCTAssertEqual(res2, 14)
     }
     
@@ -161,8 +155,7 @@ class AITests: XCTestCase {
         let card1 = Card(suit: "H", face: "A")
         let card2 = Card(suit: "S", face: "9")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         let action = ai.soft(cards: ai.getCurrentCards())
         XCTAssertEqual(action, Action.STAND)
     }
@@ -172,8 +165,7 @@ class AITests: XCTestCase {
         let card2 = Card(suit: "S", face: "5")
         let card3 = Card(suit: "C", face: "3")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         ai.addDealerCard(card3)
         let action = ai.soft(cards: ai.getCurrentCards())
         XCTAssertEqual(action, Action.HIT)
@@ -184,8 +176,7 @@ class AITests: XCTestCase {
         let card2 = Card(suit: "S", face: "5")
         let card3 = Card(suit: "C", face: "5")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         ai.addDealerCard(card3)
         let action = ai.soft(cards: ai.getCurrentCards())
         XCTAssertEqual(action, Action.DOUBLE)
@@ -197,9 +188,7 @@ class AITests: XCTestCase {
         let card3 = Card(suit: "S", face: "5")
         let card4 = Card(suit: "C", face: "5")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
-        ai.addCurrentCard(card3)
+        ai.addCurrentCards(card1, card2, card3)
         ai.addDealerCard(card4)
         let action = ai.soft(cards: ai.getCurrentCards())
         XCTAssertEqual(action, Action.DOUBLE)
@@ -211,9 +200,7 @@ class AITests: XCTestCase {
         let card3 = Card(suit: "S", face: "5")
         let card4 = Card(suit: "C", face: "K")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
-        ai.addCurrentCard(card3)
+        ai.addCurrentCards(card1, card2, card3)
         ai.addDealerCard(card4)
         let action = ai.soft(cards: ai.getCurrentCards())
         XCTAssertEqual(action, Action.HIT)
@@ -226,8 +213,7 @@ class AITests: XCTestCase {
         let card3 = Card(suit: "C", face: "7")
         let card4 = Card(suit: "D", face: "4")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         ai.addDealerCard(card3)
         let action = ai.hard()
         XCTAssertEqual(action, Action.HIT)
@@ -242,8 +228,7 @@ class AITests: XCTestCase {
         let card1 = Card(suit: "H", face: "10")
         let card2 = Card(suit: "S", face: "10")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         let action = ai.split()
         XCTAssertEqual(action, Action.NOSPLIT)
     }
@@ -252,8 +237,7 @@ class AITests: XCTestCase {
         let card1 = Card(suit: "H", face: "A")
         let card2 = Card(suit: "S", face: "A")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         let action = ai.split()
         XCTAssertEqual(action, Action.SPLIT)
     }
@@ -263,8 +247,7 @@ class AITests: XCTestCase {
         let card2 = Card(suit: "S", face: "9")
         let card3 = Card(suit: "C", face: "7")
         let ai = AI()
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         ai.addDealerCard(card3)
         let action = ai.split()
         XCTAssertEqual(action, Action.NOSPLIT)
@@ -275,8 +258,7 @@ class AITests: XCTestCase {
         let card2 = Card(suit: "S", face: "4")
         let card3 = Card(suit: "C", face: "6")
         let ai = AI(betChoice: 5000, doubleAfterSplit: false)
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         ai.addDealerCard(card3)
         let action = ai.split()
         XCTAssertEqual(action, Action.NOSPLIT)
@@ -287,8 +269,7 @@ class AITests: XCTestCase {
         let card2 = Card(suit: "S", face: "4")
         let card3 = Card(suit: "C", face: "6")
         let ai = AI(betChoice: 5000, doubleAfterSplit: true)
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         ai.addDealerCard(card3)
         let action = ai.split()
         XCTAssertEqual(action, Action.SPLIT)
@@ -299,11 +280,86 @@ class AITests: XCTestCase {
         let card2 = Card(suit: "S", face: "9")
         let card3 = Card(suit: "C", face: "A")
         let ai = AI(betChoice: 5000, doubleAfterSplit: true)
-        ai.addCurrentCard(card1)
-        ai.addCurrentCard(card2)
+        ai.addCurrentCards(card1, card2)
         ai.addDealerCard(card3)
         let action = ai.split()
         XCTAssertEqual(action, Action.NOSPLIT)
+    }
+    
+    func testCorrectSurrender() {
+        let card1 = Card(suit: "H", face: "9")
+        let card2 = Card(suit: "S", face: "7")
+        let card3 = Card(suit: "C", face: "A")
+        let ai = AI()
+        ai.addCurrentCards(card1, card2)
+        ai.addDealerCard(card3)
+        let action = ai.move()
+        XCTAssertEqual(action, Action.SURRENDER)
+    }
+    
+    func testMove1() {
+        let card1 = Card(suit: "H", face: "9")
+        let card2 = Card(suit: "S", face: "7")
+        let card3 = Card(suit: "C", face: "9")
+        let card4 = Card(suit: "C", face: "A")
+        let ai = AI()
+        ai.addCurrentCard(card1)
+        ai.addCurrentCard(card2)
+        ai.addCurrentCard(card3)
+        ai.addDealerCard(card4)
+        let action = ai.move()
+        XCTAssertEqual(action, Action.BUST)
+    }
+    
+    func testMove2() {
+        let card1 = Card(suit: "H", face: "4")
+        let card2 = Card(suit: "S", face: "4")
+        let card3 = Card(suit: "C", face: "4")
+        let card4 = Card(suit: "C", face: "6")
+        let ai = AI()
+        ai.addCurrentCards(card1, card2, card3)
+        ai.addDealerCard(card4)
+        let action = ai.move()
+        XCTAssertEqual(action, Action.STAND)
+    }
+    
+    func testMove3() {
+        let card1 = Card(suit: "H", face: "7")
+        let card2 = Card(suit: "S", face: "A")
+        let card3 = Card(suit: "C", face: "10")
+        let card4 = Card(suit: "D", face: "3")
+        let card5 = Card(suit: "C", face: "4")
+        let ai = AI()
+        ai.addCurrentCards(card1, card2, card3, card4)
+        ai.addDealerCard(card5)
+        let action = ai.move()
+        XCTAssertEqual(action, Action.BLACKJACK)
+    }
+    
+    func testMove4() {
+        let card1 = Card(suit: "H", face: "A")
+        let card2 = Card(suit: "S", face: "3")
+        let card3 = Card(suit: "C", face: "2")
+        let card4 = Card(suit: "C", face: "9")
+        let ai = AI()
+        ai.addCurrentCards(card1, card2, card3)
+        ai.addDealerCard(card4)
+        let action = ai.move()
+        XCTAssertEqual(action, Action.HIT)
+    }
+    
+    func testMove5() {
+        let card1 = Card(suit: "H", face: "2")
+        let card2 = Card(suit: "S", face: "3")
+        let card3 = Card(suit: "C", face: "5")
+        let card4 = Card(suit: "C", face: "7")
+        let card5 = Card(suit: "D", face: "3")
+        let card6 = Card(suit: "D", face: "Q")
+        let ai = AI()
+        ai.addCurrentCards(card1, card2, card3, card4, card5)
+        ai.addDealerCard(card6)
+        let action = ai.move()
+        XCTAssertEqual(action, Action.STAND)
     }
     
     

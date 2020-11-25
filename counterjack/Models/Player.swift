@@ -20,6 +20,17 @@ class Player {
     private var totalEarnings: Float
     private var rating: Float?
     
+    init() {
+        self.firstName = ""
+        self.lastName = ""
+        self.email = ""
+        self.profilePicture = ""
+        self.hours = 0
+        self.totalEarnings = 0
+        self.id = createNewID(0)
+        self.rating = nil
+    }
+    
     init(firstName: String, lastName: String, email: String, profilePicture: String) {
         self.firstName = firstName
         self.lastName = lastName

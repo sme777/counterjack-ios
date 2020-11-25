@@ -61,6 +61,12 @@ class AI {
         currentCards.append(card)
     }
     
+    public func addCurrentCards(_ cards: Card...) -> () {
+        for card in cards {
+            currentCards.append(card)
+        }
+    }
+    
     public func addDealerCard(_ card: Card) {
         dealerCards.append(card)
     }
@@ -90,7 +96,7 @@ class AI {
     public func move() -> Action? {
         if !isValid() {
             return nil
-        } else if faceValue(currentCards[0].face) == faceValue(currentCards[1].face) {
+        } else if faceValue(currentCards[0].face) == faceValue(currentCards[1].face) && currentCards.count == 2{
             //return split()
             if let willSplit = split() {
                 if willSplit == Action.NOSPLIT {
@@ -120,7 +126,7 @@ class AI {
     
     
     private func isValid() -> Bool {
-        return currentCards.count == 2 && dealerCards.count == 1
+        return currentCards.count >= 2 && dealerCards.count == 1
     }
     
     //check if the sum exceeds 21 for Ace
@@ -134,7 +140,7 @@ class AI {
     }
     
     private func isSurrender() -> Bool {
-        let sum = count(currentCards)
+        let sum = GameFunctions.count(currentCards)
         if sum == 16 && !isSoft() && inRange(from: "9", to: "A") {
             return true
         } else if sum == 15  && !isSoft() && inRange(from: "10", to: "A") {
@@ -263,7 +269,7 @@ class AI {
             }
         } else {
             let aces = countAces()
-            var counts = count(currentCards, shouldCountAces: false)
+            var counts = GameFunctions.count(currentCards, shouldCountAces: false)
             
             if counts + (10 + aces) > 21 {
                 counts += aces
@@ -281,7 +287,7 @@ class AI {
 
     public func hard() -> Action {
         
-        let value = count(currentCards)
+        let value = GameFunctions.count(currentCards)
         
         if value == 17 {
             return Action.STAND
@@ -324,39 +330,6 @@ class AI {
         } else {
             return Action.HIT
         }
-    }
-
-    public func count(_ cards: Array<Card>, shouldCountAces: Bool=true) -> Int {
-        var sum = 0
-        var aces: Array<Card> = []
-        for i in 0..<cards.count {
-            if cards[i].face == "J" || cards[i].face == "Q" || cards[i].face == "K" {
-                sum += 10
-            } else if cards[i].face != "A" {
-                sum += Int(cards[i].face) ?? 0
-            } else {
-                aces.append(cards[i])
-            }
-        }
-        if shouldCountAces {
-            for _ in 0..<aces.count {
-                if sum + 11 > 21 {
-                    sum += 1
-                } else if sum + 11 <= 21 && aces.count == 1 {
-                    sum += 11
-                } else if sum + 11 <= 21 && aces.count != 1 {
-                    if sum + 10 + aces.count > 21 {
-                        sum += 1
-                    } else {
-                        sum += 11
-                    }
-                } else {
-                    sum += 1
-                }
-            }
-        }
-        
-        return sum
     }
     
     private func countAces() -> Int {
