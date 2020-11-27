@@ -22,6 +22,7 @@
 		E7186D832558232800CF6A81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D822558232800CF6A81 /* LoginViewController.swift */; };
 		E73630B8256ECE440013FD09 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73630B7256ECE440013FD09 /* GameFunctions.swift */; };
 		E73630BA256ED60F0013FD09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73630B9256ED60F0013FD09 /* Game.swift */; };
+		E73630BC257088650013FD09 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73630BB257088650013FD09 /* Post.swift */; };
 		E749AF5B256C1F1A00908E1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749AF5A256C1F1A00908E1A /* User.swift */; };
 		E78AE04F2569CD49004BF1CA /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE04E2569CD49004BF1CA /* Action.swift */; };
 		E78AE051256AFF53004BF1CA /* DatabaseCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE050256AFF53004BF1CA /* DatabaseCalls.swift */; };
@@ -95,6 +96,7 @@
 		E7186D822558232800CF6A81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E73630B7256ECE440013FD09 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		E73630B9256ED60F0013FD09 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		E73630BB257088650013FD09 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E749AF5A256C1F1A00908E1A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E78AE04E2569CD49004BF1CA /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		E78AE050256AFF53004BF1CA /* DatabaseCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCalls.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				E78AE04E2569CD49004BF1CA /* Action.swift */,
 				E749AF5A256C1F1A00908E1A /* User.swift */,
 				E73630B9256ED60F0013FD09 /* Game.swift */,
+				E73630BB257088650013FD09 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B75A0D25598089008D5136 /* SignUp1ViewController.swift in Sources */,
+				E73630BC257088650013FD09 /* Post.swift in Sources */,
 				E7186D512558180D00CF6A81 /* InitialViewController.swift in Sources */,
 				E7186D572558180D00CF6A81 /* counterjack.xcdatamodeld in Sources */,
 				E7C3F2C52561E4C700A4C4F9 /* AI.swift in Sources */,

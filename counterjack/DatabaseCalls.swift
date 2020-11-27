@@ -10,6 +10,23 @@ import UIKit
 
 class DatabaseCalls {
     
+    
+    static func randomStorageRefGenerator(length : Int = 10) -> String {
+        enum s {
+            static let c = Array("abcdefghijklmnopqrstuvwxyz123456789")
+            static let k = UInt32(c.count)
+        }
+        
+        var result = [Character](repeating: "-", count: length)
+        
+        for i in 0..<length {
+            let r = Int(arc4random_uniform(s.k))
+            result[i] = s.c[r]
+        }
+        return String(result)
+    }
+    
+    
     static let cache = NSCache<NSString, UIImage>()
     
     static func downloadImage(withURL url: URL, completion: @escaping (_ image: UIImage?) -> ()) {

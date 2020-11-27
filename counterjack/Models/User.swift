@@ -15,9 +15,14 @@ class User: Object {
     @objc dynamic var date: Double = 0
     @objc dynamic var email: String = ""
     @objc dynamic var karma: Int = 0
+    @objc dynamic var rank: Int = 0
+    @objc dynamic var profile: String = ""
+    let posts = List<Post>()
     let friends = List<User>()
     
-//    init(name: String, id: String) {
+    
+    
+    //    init(name: String, id: String) {
 //        self.name = name
 //        self.id = id
 //    }

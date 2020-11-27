@@ -480,7 +480,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="GjU-W6-kdk"/>
                     <connections>
-                        <outlet property="profileImageView" destination="V2U-YH-6IM" id="TmI-cR-xxh"/>
+                        <outlet property="profileImageView" destination="V2U-YH-6IM" id="Edp-MZ-dTy"/>
                         <outlet property="signupButton" destination="FCI-FQ-zIc" id="Rcj-TV-fTw"/>
                         <outlet property="usernameErrorLabel" destination="MjR-R4-Dhz" id="3E8-rV-Zf6"/>
                         <outlet property="usernameTextField" destination="8fH-37-IEY" id="B9E-bJ-h7w"/>
@@ -749,6 +749,6 @@
         <image name="userpic" width="640" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DW3-kd-XZR"/>
+        <segue reference="6zd-ok-oOm"/>
     </inferredMetricsTieBreakers>
 </document>

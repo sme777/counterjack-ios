@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SignUp1ViewController: UIViewController {
     
@@ -19,7 +20,7 @@ class SignUp1ViewController: UIViewController {
     override func viewDidLoad() {
         
         
-        
+        print(Realm.Configuration.defaultConfiguration.fileURL! )
         nameErrorLabel.isHidden = true
         emailErrorLabel.isHidden = true
         passwordErrorLabel.isHidden = true
