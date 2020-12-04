@@ -20,6 +20,8 @@
 		E7186D672558181100CF6A81 /* counterjackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D662558181100CF6A81 /* counterjackTests.swift */; };
 		E7186D722558181100CF6A81 /* counterjackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D712558181100CF6A81 /* counterjackUITests.swift */; };
 		E7186D832558232800CF6A81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D822558232800CF6A81 /* LoginViewController.swift */; };
+		E71CDDD4257A27AB00D17C0B /* NewGameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71CDDD3257A27AB00D17C0B /* NewGameSettingsViewController.swift */; };
+		E71CDDD6257A315600D17C0B /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71CDDD5257A315600D17C0B /* StartGameViewController.swift */; };
 		E73630B8256ECE440013FD09 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73630B7256ECE440013FD09 /* GameFunctions.swift */; };
 		E73630BA256ED60F0013FD09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73630B9256ED60F0013FD09 /* Game.swift */; };
 		E73630BC257088650013FD09 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73630BB257088650013FD09 /* Post.swift */; };
@@ -94,6 +96,8 @@
 		E7186D712558181100CF6A81 /* counterjackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = counterjackUITests.swift; sourceTree = "<group>"; };
 		E7186D732558181100CF6A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7186D822558232800CF6A81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E71CDDD3257A27AB00D17C0B /* NewGameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameSettingsViewController.swift; sourceTree = "<group>"; };
+		E71CDDD5257A315600D17C0B /* StartGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
 		E73630B7256ECE440013FD09 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		E73630B9256ED60F0013FD09 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		E73630BB257088650013FD09 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				E78AE052256B037A004BF1CA /* HomeViewController.swift */,
 				E78AE054256B038F004BF1CA /* ForumViewController.swift */,
 				E78AE056256B039F004BF1CA /* ProfileViewController.swift */,
+				E71CDDD3257A27AB00D17C0B /* NewGameSettingsViewController.swift */,
+				E71CDDD5257A315600D17C0B /* StartGameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 				E7186D4D2558180D00CF6A81 /* AppDelegate.swift in Sources */,
 				E78AE057256B039F004BF1CA /* ProfileViewController.swift in Sources */,
 				E7186D832558232800CF6A81 /* LoginViewController.swift in Sources */,
+				E71CDDD4257A27AB00D17C0B /* NewGameSettingsViewController.swift in Sources */,
 				E7B75A112559809B008D5136 /* SignUp2ViewController.swift in Sources */,
 				E7186D4F2558180D00CF6A81 /* SceneDelegate.swift in Sources */,
 				E7C3F2C92564625C00A4C4F9 /* Dealer.swift in Sources */,
@@ -536,6 +543,7 @@
 				E7B75A0925596DE3008D5136 /* Constants.swift in Sources */,
 				E7C3F2C72561E5D500A4C4F9 /* Card.swift in Sources */,
 				E749AF5B256C1F1A00908E1A /* User.swift in Sources */,
+				E71CDDD6257A315600D17C0B /* StartGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

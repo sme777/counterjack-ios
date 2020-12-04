@@ -498,15 +498,179 @@
                     <view key="view" contentMode="scaleToFill" id="Hcn-01-WY2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evj-fK-qk0">
+                                <rect key="frame" x="107" y="327" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="newGameButtonPressed:" destination="FNq-Xf-9Ih" eventType="touchUpInside" id="kic-44-Wok"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-hO-VKk">
+                                <rect key="frame" x="158" y="511" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Online"/>
+                                <connections>
+                                    <action selector="playOnlineButtonPressed:" destination="FNq-Xf-9Ih" eventType="touchUpInside" id="fAZ-Z9-f5Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uav-J1-zjv">
+                                <rect key="frame" x="170" y="419" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Last Game"/>
+                                <connections>
+                                    <action selector="lastGameButtonPressed:" destination="FNq-Xf-9Ih" eventType="touchUpInside" id="32I-2C-Gwk"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unchecked_checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="cxQ-tX-Y7h">
+                                <rect key="frame" x="259" y="373" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cl4-OJ-wxQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="gamecontroller" catalog="system" selectedImage="gamecontroller" id="ceN-7y-0Wo"/>
                     <navigationItem key="navigationItem" id="cEg-d7-nrM"/>
+                    <connections>
+                        <outlet property="checkbox" destination="cxQ-tX-Y7h" id="EgR-5h-qBi"/>
+                        <outlet property="lastGameButton" destination="Uav-J1-zjv" id="DRA-mO-yXc"/>
+                        <outlet property="newGameButton" destination="evj-fK-qk0" id="INN-ch-xCH"/>
+                        <outlet property="playOnlineButton" destination="rdK-hO-VKk" id="VUJ-RG-pfu"/>
+                        <segue destination="6e6-2b-IDY" kind="show" identifier="newGame" id="nXz-49-UQF"/>
+                        <segue destination="I4f-r6-aYm" kind="show" id="bMt-14-u7w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmC-OM-eqQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6332" y="-621"/>
+            <point key="canvasLocation" x="6331.884057971015" y="-621.42857142857144"/>
+        </scene>
+        <!--New Game Settings View Controller-->
+        <scene sceneID="lAr-1u-aSt">
+            <objects>
+                <viewController id="6e6-2b-IDY" customClass="NewGameSettingsViewController" customModule="counterjack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c25-iL-nUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Seats For You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rok-ze-TgC">
+                                <rect key="frame" x="111" y="166" width="192" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Other Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-Z8-wqv">
+                                <rect key="frame" x="117" y="284" width="190" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Playing Strategy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cei-wm-05m">
+                                <rect key="frame" x="119" y="382" width="188" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose the Number of Decks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2c-l6-oIa">
+                                <rect key="frame" x="100" y="506" width="226" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jdi-m3-DzI" customClass="DropDown" customModule="iOSDropDown">
+                                <rect key="frame" x="97" y="212" width="226" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aBJ-Qk-wMw" customClass="DropDown" customModule="iOSDropDown">
+                                <rect key="frame" x="94" y="313" width="226" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Optimal Strategy" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxA-7u-7em" customClass="DropDown" customModule="iOSDropDown">
+                                <rect key="frame" x="97" y="431" width="226" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-iU-eCM" customClass="DropDown" customModule="iOSDropDown">
+                                <rect key="frame" x="94" y="549" width="226" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zzf-qT-Og9" customClass="DropDown" customModule="iOSDropDown">
+                                <rect key="frame" x="97" y="673" width="226" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose the Audio Effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51I-iZ-uzg">
+                                <rect key="frame" x="113" y="630" width="194" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf9-5J-usK">
+                                <rect key="frame" x="157" y="775" width="100" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.41568627450000001" green="0.73333333329999995" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="6e6-2b-IDY" eventType="touchUpInside" id="g1J-CI-Ael"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rIA-q4-bjE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vVH-hf-1Tp"/>
+                    <connections>
+                        <outlet property="AIStrategyDropDown" destination="BxA-7u-7em" id="Q1u-sN-5ZW"/>
+                        <outlet property="audioEffectsDropDown" destination="Zzf-qT-Og9" id="bYh-bY-DRW"/>
+                        <outlet property="numberOfAISeatsDropDown" destination="aBJ-Qk-wMw" id="oX6-ec-RDy"/>
+                        <outlet property="numberOfDecksDropDown" destination="mKt-iU-eCM" id="Pyx-3X-ABw"/>
+                        <outlet property="numberOfPlayerSeatsDropDown" destination="jdi-m3-DzI" id="uhK-Av-xew"/>
+                        <outlet property="startButton" destination="Rf9-5J-usK" id="s8k-qa-d6b"/>
+                        <segue destination="I4f-r6-aYm" kind="show" identifier="startGame" id="Mmc-dA-RfT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KiF-wB-cKO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7879.7101449275369" y="-1104.2410714285713"/>
+        </scene>
+        <!--Start Game View Controller-->
+        <scene sceneID="boM-Ks-BFP">
+            <objects>
+                <viewController id="I4f-r6-aYm" customClass="StartGameViewController" customModule="counterjack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="glU-hX-2dN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Your Table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed7-7v-acQ">
+                                <rect key="frame" x="119" y="272" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hqu-mE-hnG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xl1-Zh-nTY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r9Q-ik-crk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9312" y="-607"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="WnI-Ln-Fei">
@@ -562,7 +726,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Mr_Jack" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bXl-OB-eJX">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jack@counterjacl.com" borderStyle="bezel" placeholder="Mr_Jack" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bXl-OB-eJX">
                                                 <rect key="frame" x="50" y="80" width="314" height="50"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="emailField"/>
                                                 <constraints>
@@ -593,14 +757,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XiU-eg-5yY">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mrjack777" borderStyle="bezel" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XiU-eg-5yY">
                                                 <rect key="frame" x="50" y="82" width="314" height="50"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="passwordField"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Esk-NN-hvX"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -746,9 +910,11 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="logo" width="640" height="492"/>
         <image name="person" catalog="system" width="64" height="58"/>
+        <image name="unchecked_checkbox" width="50" height="50"/>
         <image name="userpic" width="640" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6zd-ok-oOm"/>
+        <segue reference="DW3-kd-XZR"/>
+        <segue reference="Mmc-dA-RfT"/>
     </inferredMetricsTieBreakers>
 </document>

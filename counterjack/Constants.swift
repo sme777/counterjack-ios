@@ -18,7 +18,8 @@ struct K {
         static let continueSignUp = "continueSignUp"
         static let finishSignUp = "signUpSuccess"
         static let guestLogIn = "guestLogIn"
-        
+        static let newGame = "newGame"
+        static let startgame = "startGame"
     }
     
 }

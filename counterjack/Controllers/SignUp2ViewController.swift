@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import RealmSwift
+//import RealmSwift
 
 class SignUp2ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -21,7 +21,7 @@ class SignUp2ViewController: UIViewController, UIImagePickerControllerDelegate, 
     var email: String!
     //var addProfileImage: Bool = false
     var image: UIImage? = nil
-    let realm = try! Realm()
+    //let realm = try! Realm()
     
     private var imagePicker = UIImagePickerController()
     private let auth = Auth.auth()
@@ -31,7 +31,7 @@ class SignUp2ViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 5
         usernameErrorLabel.isHidden = true
         
-        print(Realm.Configuration.defaultConfiguration.fileURL! )
+        //print(Realm.Configuration.defaultConfiguration.fileURL! )
         //image picker
         imagePicker.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(SignUp2ViewController.profileImageSelect))
@@ -68,12 +68,12 @@ class SignUp2ViewController: UIViewController, UIImagePickerControllerDelegate, 
                     let date: TimeInterval = Date().timeIntervalSince1970
                     
                     //local persistance
-                    let newUser = User()
-                    newUser.name = self.name!
-                    newUser.email = self.email!
-                    newUser.id = id
-                    newUser.date = date
-                    self.realm.add(newUser)
+//                    let newUser = User()
+//                    newUser.name = self.name!
+//                    newUser.email = self.email!
+//                    newUser.id = id
+//                    newUser.date = date
+//                    self.realm.add(newUser)
                     //w/o picture
                     
                     if let profileImage = self.image {

@@ -12,7 +12,7 @@ target 'counterjack' do
   pod 'Firebase/Storage'
   pod 'Firebase/Analytics'
   pod 'RealmSwift'
-  
+  pod 'iOSDropDown'  
 
   # Pods for counterjack
 
