@@ -20,6 +20,7 @@ struct K {
         static let guestLogIn = "guestLogIn"
         static let newGame = "newGame"
         static let startgame = "startGame"
+        static let lastGame = "lastGame"
     }
     
 }

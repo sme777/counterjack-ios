@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: K.Segues.newGame, sender: self)
     }
     @IBAction func lastGameButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: K.Segues.lastGame, sender: self)
     }
     @IBAction func playOnlineButtonPressed(_ sender: UIButton) {
     }

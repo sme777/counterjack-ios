@@ -66,4 +66,8 @@ class Game {
         }
         return listOfPlayer
     }
+    
+    public func getDeckCount() -> Int {
+        return deck.getNumberOfDecks() * 52
+    }
 }
