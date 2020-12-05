@@ -531,20 +531,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cl4-OJ-wxQ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="gamecontroller" catalog="system" selectedImage="gamecontroller" id="ceN-7y-0Wo"/>
                     <navigationItem key="navigationItem" id="cEg-d7-nrM"/>
                     <connections>
                         <outlet property="checkbox" destination="cxQ-tX-Y7h" id="EgR-5h-qBi"/>
                         <outlet property="lastGameButton" destination="Uav-J1-zjv" id="DRA-mO-yXc"/>
                         <outlet property="newGameButton" destination="evj-fK-qk0" id="INN-ch-xCH"/>
                         <outlet property="playOnlineButton" destination="rdK-hO-VKk" id="VUJ-RG-pfu"/>
-                        <segue destination="6e6-2b-IDY" kind="show" identifier="newGame" id="nXz-49-UQF"/>
                         <segue destination="I4f-r6-aYm" kind="show" identifier="lastGame" id="bMt-14-u7w"/>
+                        <segue destination="6e6-2b-IDY" kind="show" identifier="newGame" id="WG4-BA-Bd6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmC-OM-eqQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6331.884057971015" y="-621.42857142857144"/>
+            <point key="canvasLocation" x="7242.0289855072469" y="-621.42857142857144"/>
         </scene>
         <!--New Game Settings View Controller-->
         <scene sceneID="lAr-1u-aSt">
@@ -645,7 +644,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KiF-wB-cKO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7879.7101449275369" y="-1104.2410714285713"/>
+            <point key="canvasLocation" x="8789.855072463768" y="-1104.2410714285713"/>
         </scene>
         <!--Start Game View Controller-->
         <scene sceneID="boM-Ks-BFP">
@@ -655,71 +654,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-vh-8Ua">
-                                <rect key="frame" x="0.0" y="638" width="108" height="50"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="hMe-6p-BH0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-BV-9I8">
+                                <rect key="frame" x="0.0" y="628" width="108" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.2784313725" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="tintColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="STAND"/>
+                                <connections>
+                                    <action selector="standButtonPressed:" destination="I4f-r6-aYm" eventType="touchUpInside" id="FRl-Uk-BoR"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nz2-QE-tSt">
-                                <rect key="frame" x="316" y="706" width="98" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AP-Fz-A9U">
+                                <rect key="frame" x="316" y="696" width="98" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" red="0.28627450980000002" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="DOUBLE"/>
+                                <connections>
+                                    <action selector="doubleButtonPressed:" destination="I4f-r6-aYm" eventType="touchUpInside" id="zQD-Nu-19Y"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7l-EI-jXm">
-                                <rect key="frame" x="0.0" y="775" width="108" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJl-7h-aeZ">
+                                <rect key="frame" x="0.0" y="765" width="108" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.5607843137254902" green="0.2196078431372549" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.56078431370000004" green="0.21960784310000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="tintColor" red="0.93333333333333335" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.93333333330000001" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="SPLIT"/>
+                                <connections>
+                                    <action selector="splitButtonPressed:" destination="I4f-r6-aYm" eventType="touchUpInside" id="jwL-YS-e97"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulW-fO-K9d">
-                                <rect key="frame" x="0.0" y="708" width="108" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifc-9W-HQ9">
+                                <rect key="frame" x="0.0" y="698" width="108" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28627450980392155" green="0.32941176470588235" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.28627450980000002" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="SURRENDER"/>
+                                <connections>
+                                    <action selector="surrenderButtonPressed:" destination="I4f-r6-aYm" eventType="touchUpInside" id="smH-l7-XPt"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIW-v1-ZC3">
-                                <rect key="frame" x="289" y="108" width="125" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-Kk-bN4">
+                                <rect key="frame" x="289" y="98" width="125" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.20392156862745098" green="0.38431372549019605" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.38431372549999998" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="tintColor" red="0.81176470588235294" green="0.82745098039215681" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.81176470590000005" green="0.82745098039999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="SIDE BETS"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnE-ts-OEw">
-                                <rect key="frame" x="316" y="638" width="98" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqM-uo-mrs">
+                                <rect key="frame" x="316" y="628" width="98" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="tintColor" red="0.13333333333333333" green="0.15686274509803921" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.1333333333" green="0.15686274510000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="HIT"/>
+                                <connections>
+                                    <action selector="hitButtonPressed:" destination="I4f-r6-aYm" eventType="touchUpInside" id="EyL-qu-sHB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hMe-6p-BH0" firstAttribute="top" secondItem="glU-hX-2dN" secondAttribute="top" id="532-Mk-P7G"/>
+                            <constraint firstAttribute="bottom" secondItem="hMe-6p-BH0" secondAttribute="bottom" id="Gom-i2-sTI"/>
+                            <constraint firstItem="hMe-6p-BH0" firstAttribute="leading" secondItem="hqu-mE-hnG" secondAttribute="leading" id="gMQ-ko-WV7"/>
+                            <constraint firstItem="hMe-6p-BH0" firstAttribute="trailing" secondItem="hqu-mE-hnG" secondAttribute="trailing" id="lOn-Vf-yyA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hqu-mE-hnG"/>
                     </view>
                     <navigationItem key="navigationItem" id="xl1-Zh-nTY"/>
                     <connections>
-                        <outlet property="doubleButton" destination="nz2-QE-tSt" id="zhV-CL-xZj"/>
-                        <outlet property="hitButton" destination="QnE-ts-OEw" id="K5P-Dm-xaw"/>
-                        <outlet property="sideBetsButton" destination="UIW-v1-ZC3" id="cCq-BI-NaY"/>
-                        <outlet property="splitButton" destination="h7l-EI-jXm" id="qts-6f-n6w"/>
-                        <outlet property="standButton" destination="Ksh-vh-8Ua" id="Lyr-d8-193"/>
-                        <outlet property="surrenderButton" destination="ulW-fO-K9d" id="Neh-V7-8BW"/>
+                        <outlet property="doubleButton" destination="9AP-Fz-A9U" id="5Xa-rH-Ts5"/>
+                        <outlet property="hitButton" destination="BqM-uo-mrs" id="y9b-xo-Fy9"/>
+                        <outlet property="sideBetsButton" destination="I7g-Kk-bN4" id="4xC-bk-BbP"/>
+                        <outlet property="splitButton" destination="AJl-7h-aeZ" id="HqV-Gp-2cf"/>
+                        <outlet property="standButton" destination="7qg-BV-9I8" id="9fC-xg-7cs"/>
+                        <outlet property="surrenderButton" destination="Ifc-9W-HQ9" id="PHP-mD-P2H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9Q-ik-crk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9311.5942028985519" y="-607.36607142857144"/>
+            <point key="canvasLocation" x="10221.739130434784" y="-607.36607142857144"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="WnI-Ln-Fei">
@@ -903,7 +926,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="c2N-l3-igM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="P8S-GW-Ybz"/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="background" id="XPp-uU-dms">
+                    <tabBar key="tabBar" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="XPp-uU-dms">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -911,7 +934,7 @@
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="FNq-Xf-9Ih" kind="relationship" relationship="viewControllers" id="wwo-gc-uyx"/>
+                        <segue destination="dRW-Aa-JI8" kind="relationship" relationship="viewControllers" id="wwo-gc-uyx"/>
                         <segue destination="9hQ-OG-zas" kind="relationship" relationship="viewControllers" id="Kgu-0l-Pvk"/>
                         <segue destination="80n-Yb-a57" kind="relationship" relationship="viewControllers" id="qoh-3Y-koa"/>
                     </connections>
@@ -952,9 +975,29 @@
             </objects>
             <point key="canvasLocation" x="6342" y="879"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qby-s6-Qhg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dRW-Aa-JI8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="gamecontroller" catalog="system" selectedImage="gamecontroller" id="ceN-7y-0Wo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kQw-d1-99b">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FNq-Xf-9Ih" kind="relationship" relationship="rootViewController" id="M8y-Ph-1vO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGD-PF-uKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6331.884057971015" y="-621.42857142857144"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="612" height="408"/>
+        <image name="background2" width="626" height="365"/>
         <image name="gamecontroller" catalog="system" width="64" height="40"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="logo" width="640" height="492"/>
@@ -964,6 +1007,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="DW3-kd-XZR"/>
-        <segue reference="bMt-14-u7w"/>
+        <segue reference="Mmc-dA-RfT"/>
     </inferredMetricsTieBreakers>
 </document>

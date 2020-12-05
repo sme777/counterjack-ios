@@ -24,14 +24,27 @@ class StartGameViewController: UIViewController {
         
         hitButton.layer.borderWidth = 1
         hitButton.layer.borderColor = #colorLiteral(red: 0.2754207253, green: 0.331106782, blue: 0.3982514143, alpha: 1)
-        
+        hitButton.layer.cornerRadius = hitButton.frame.size.height / 6
         doubleButton.layer.borderWidth = 1
         doubleButton.layer.borderColor = #colorLiteral(red: 0.2754207253, green: 0.331106782, blue: 0.3982514143, alpha: 1)
+        doubleButton.layer.cornerRadius = doubleButton.frame.size.height / 6
         
-        
+        configureButtons()
         loadDeck()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    
+    func configureButtons() {
+        splitButton.isEnabled = false
+        sideBetsButton.isEnabled = false
+    }
+    
+    
     func loadDeck() {
         let numberOfCards = game!.getDeckCount()
         for i in 0..<numberOfCards {
@@ -40,7 +53,20 @@ class StartGameViewController: UIViewController {
             imageView.frame = CGRect(x: 40 - i/4, y: 100 - i/4, width: 80, height: 120)
             view.addSubview(imageView)
         }
-
     }
     
+    @IBAction func hitButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func doubleButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func standButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func surrenderButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func splitButtonPressed(_ sender: UIButton) {
+    }
 }

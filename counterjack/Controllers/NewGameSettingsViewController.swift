@@ -42,6 +42,11 @@ class NewGameSettingsViewController: UIViewController {
     }
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    
     func validateSettings() -> Bool {
         self.selectedDecks = (numberOfDecksDropDown!).text!
         self.selectedAIOption = (numberOfAISeatsDropDown!).text!
