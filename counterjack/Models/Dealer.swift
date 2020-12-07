@@ -9,17 +9,19 @@
 import Foundation
 
 
-class Dealer {
+class Dealer: PlayerInterface {
     private var currentCards: Array<Card> = []
     private var bankroll: Float? = nil
     
     
     init() {
         bankroll = 50000
+        super.init(id: GameFunctions.createNewID(10))
     }
     
     init(bankroll: Float) {
         self.bankroll = bankroll
+        super.init(id: GameFunctions.createNewID(10))
     }
     
     public func move() -> Action {

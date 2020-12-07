@@ -10,6 +10,7 @@
 		1ABBDFF814316FE802FFCD66 /* Pods_counterjack_counterjackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F7A39667D224247B0D362F /* Pods_counterjack_counterjackUITests.framework */; };
 		3C2B628AC12CB3A403A56E65 /* Pods_counterjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4A59E4441AF10C576698CD /* Pods_counterjack.framework */; };
 		97FE7D9830DF4DF56B1B87F9 /* Pods_counterjackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E354A64DEB4B7C73369AE57 /* Pods_counterjackTests.framework */; };
+		E70F2AB3257E997400B2AFD8 /* PlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70F2AB2257E997400B2AFD8 /* PlayerInterface.swift */; };
 		E7186D4D2558180D00CF6A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D4C2558180D00CF6A81 /* AppDelegate.swift */; };
 		E7186D4F2558180D00CF6A81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D4E2558180D00CF6A81 /* SceneDelegate.swift */; };
 		E7186D512558180D00CF6A81 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D502558180D00CF6A81 /* InitialViewController.swift */; };
@@ -80,6 +81,7 @@
 		BBC00064BB18A4C6A95A92EC /* Pods-counterjack-counterjackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counterjack-counterjackUITests.debug.xcconfig"; path = "Target Support Files/Pods-counterjack-counterjackUITests/Pods-counterjack-counterjackUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DFB5D8E09EC4FB5ACA06970B /* Pods-counterjack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counterjack.debug.xcconfig"; path = "Target Support Files/Pods-counterjack/Pods-counterjack.debug.xcconfig"; sourceTree = "<group>"; };
 		E60BB27412410DBA7F443262 /* Pods-counterjack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counterjack.release.xcconfig"; path = "Target Support Files/Pods-counterjack/Pods-counterjack.release.xcconfig"; sourceTree = "<group>"; };
+		E70F2AB2257E997400B2AFD8 /* PlayerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInterface.swift; sourceTree = "<group>"; };
 		E7186D492558180D00CF6A81 /* counterjack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = counterjack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7186D4C2558180D00CF6A81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7186D4E2558180D00CF6A81 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				E749AF5A256C1F1A00908E1A /* User.swift */,
 				E73630B9256ED60F0013FD09 /* Game.swift */,
 				E73630BB257088650013FD09 /* Post.swift */,
+				E70F2AB2257E997400B2AFD8 /* PlayerInterface.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				E78AE053256B037A004BF1CA /* HomeViewController.swift in Sources */,
 				E7C3F2C32561DD3000A4C4F9 /* Player.swift in Sources */,
 				E73630BA256ED60F0013FD09 /* Game.swift in Sources */,
+				E70F2AB3257E997400B2AFD8 /* PlayerInterface.swift in Sources */,
 				E78AE04F2569CD49004BF1CA /* Action.swift in Sources */,
 				E7B75A0925596DE3008D5136 /* Constants.swift in Sources */,
 				E7C3F2C72561E5D500A4C4F9 /* Card.swift in Sources */,

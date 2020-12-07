@@ -9,32 +9,53 @@
 import Foundation
 
 class Game {
+    private var tablePositions: [Int] = []
     private var deck: Deck!
+    private var cards: Array<Card>!
     private var ais: Array<AI>!
     private var players: Array<Player>!
+    private var playerCards = [Player : Array<Card>]()
+    private var playerQueue: [PlayerInterface] = []
+    //private var playersCards:
     
     init() {
         self.deck = makeDeck(1)
         self.ais = makeAIs(1)
         self.players = makePlayers(1)
+        self.cards = self.deck.getRandomDeck()
+        self.tablePositions.append(3)
     }
     
     init(deckNumber: Int) {
         self.deck = makeDeck(deckNumber)
         self.ais = makeAIs(1)
         self.players = makePlayers(1)
+        self.cards = self.deck.getRandomDeck()
+        self.tablePositions.append(3)
     }
     
     init(deckNumber: Int, aiNumber: Int) {
         self.deck = makeDeck(deckNumber)
         self.ais = makeAIs(aiNumber)
         self.players = makePlayers(1)
+        self.cards = self.deck.getRandomDeck()
+        self.tablePositions.append(3)
     }
     
     init(deckNumber: Int, aiNumber: Int, playerNumber: Int) {
         self.deck = makeDeck(deckNumber)
         self.ais = makeAIs(aiNumber)
         self.players = makePlayers(playerNumber)
+        self.cards = self.deck.getRandomDeck()
+        self.tablePositions.append(3)
+    }
+    
+    init(deckNumber: Int, aiNumber: Int, playerNumber: Int, positions: Int...) {
+        self.deck = makeDeck(deckNumber)
+        self.ais = makeAIs(aiNumber)
+        self.players = makePlayers(playerNumber)
+        self.cards = self.deck.getRandomDeck()
+        self.tablePositions = positions
     }
     
     private func makeDeck(_ numberOfDecks: Int) -> Deck {
@@ -62,10 +83,24 @@ class Game {
         while count != 0 {
             let player = Player()
             listOfPlayer.append(player)
+            playerCards[player] = []
             count -= 1
         }
         return listOfPlayer
     }
+    
+    public func addPlayerCard(_ card: Card) {
+        
+    }
+    
+//    public func getCurrentPlayer() -> Player {
+//        
+//    }
+    
+    public func popTopCard() -> Card {
+        return cards.remove(at: 0)
+    }
+    
     
     public func getDeckCount() -> Int {
         return deck.getNumberOfDecks() * 52

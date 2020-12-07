@@ -18,7 +18,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-ah-raA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="97G-eG-KJy">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="97G-eG-KJy">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Eeu-2R-Db2">
@@ -948,7 +948,7 @@
             <objects>
                 <viewController id="9hQ-OG-zas" customClass="ForumViewController" customModule="counterjack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sd3-KE-Rxj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gCS-sp-L1z"/>
@@ -964,7 +964,7 @@
             <objects>
                 <viewController id="80n-Yb-a57" customClass="ProfileViewController" customModule="counterjack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGv-S2-w8Q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Zkf-fM-Agz"/>
@@ -996,7 +996,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="612" height="408"/>
         <image name="background2" width="626" height="365"/>
         <image name="gamecontroller" catalog="system" width="64" height="40"/>
         <image name="house" catalog="system" width="64" height="54"/>
@@ -1006,7 +1005,7 @@
         <image name="userpic" width="640" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DW3-kd-XZR"/>
+        <segue reference="Y2l-lj-6JF"/>
         <segue reference="Mmc-dA-RfT"/>
     </inferredMetricsTieBreakers>
 </document>

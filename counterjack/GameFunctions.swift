@@ -42,4 +42,9 @@ class GameFunctions {
         
         return sum
     }
+    
+    public static func createNewID(_ length: Int) -> String {
+          let set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+          return String((0..<length).map{ _ in set.randomElement()! })
+    }
 }

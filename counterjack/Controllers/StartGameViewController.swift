@@ -18,7 +18,9 @@ class StartGameViewController: UIViewController {
     @IBOutlet weak var doubleButton: UIButton!
     @IBOutlet weak var hitButton: UIButton!
     var game: Game? = nil
-    
+    var uicards: Array<UIView> = []
+    var hitCount = 0
+    var firstRow = 0
     override func viewDidLoad() {
         game = Game(deckNumber: 2)
         
@@ -48,14 +50,42 @@ class StartGameViewController: UIViewController {
     func loadDeck() {
         let numberOfCards = game!.getDeckCount()
         for i in 0..<numberOfCards {
-            let image = UIImage(named: "gray_back")
-            let imageView = UIImageView(image: image!)
-            imageView.frame = CGRect(x: 40 - i/4, y: 100 - i/4, width: 80, height: 120)
-            view.addSubview(imageView)
+            let backImage = UIImage(named: "gray_back")
+            let backImageView = UIImageView(image: backImage!)
+            let rect  = CGRect(x: 40 - i/4, y: 100 - i/4, width: 80, height: 120)
+            backImageView.frame = CGRect(x: 0, y: 0, width: 80, height: 120)
+            
+            let someView = UIView(frame: rect)
+            someView.addSubview(backImageView)
+            uicards.append(someView)
+            view.addSubview(someView)
         }
     }
     
     @IBAction func hitButtonPressed(_ sender: UIButton) {
+        let topCard = game?.popTopCard()
+        let topCardView = uicards.remove(at: uicards.endIndex - 1)
+        
+        let frontImage = UIImage(named: topCard!.face + topCard!.suit)
+        let frontImageView = UIImageView(image: frontImage!)
+        frontImageView.frame = topCardView.subviews[0].frame
+        
+        UIView.animate(withDuration: 2, animations: {
+            if self.hitCount > 3 {
+                topCardView.frame.origin.y += 620
+            } else {
+                topCardView.frame.origin.y += 550
+            }
+            topCardView.frame.origin.x += (125 + CGFloat(self.hitCount % 4) * 25)
+            self.view.bringSubviewToFront(topCardView)
+            
+        }) { (trans) in
+            UIView.transition(from: topCardView.subviews[0], to: frontImageView, duration: 0.3, options: .transitionFlipFromLeft, completion: nil)
+        }
+        
+        
+        
+        self.hitCount += 1
     }
     
     @IBAction func doubleButtonPressed(_ sender: UIButton) {

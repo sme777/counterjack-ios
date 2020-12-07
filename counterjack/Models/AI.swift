@@ -9,7 +9,7 @@
 import Foundation
 
 
-class AI {
+class AI: PlayerInterface {
     
     private var betChoice: Int
     private var doubleAfterSplit: Bool
@@ -24,24 +24,28 @@ class AI {
         self.betChoice = 1
         self.doubleAfterSplit = true
         self.bankroll = 5000
+        super.init(id: GameFunctions.createNewID(10))
     }
     
     init(doubleAfterSplit: Bool) {
         self.betChoice = 1
         self.doubleAfterSplit = doubleAfterSplit
         self.bankroll = 5000
+        super.init(id: GameFunctions.createNewID(10))
     }
     
     init(betChoice: Int) {
         self.betChoice = betChoice
         self.doubleAfterSplit = true
         self.bankroll = 5000
+        super.init(id: GameFunctions.createNewID(10))
     }
     
     init(betChoice: Int, doubleAfterSplit: Bool) {
         self.betChoice = betChoice
         self.bankroll = 5000
         self.doubleAfterSplit = doubleAfterSplit
+        super.init(id: GameFunctions.createNewID(10))
     }
     
     
@@ -49,12 +53,14 @@ class AI {
         self.betChoice = betChoice
         self.bankroll = bankroll
         self.doubleAfterSplit = true
+        super.init(id: GameFunctions.createNewID(10))
     }
     
     init(betChoice: Int, doubleAfterSplit: Bool, bankroll: Double) {
         self.betChoice = betChoice
         self.bankroll = bankroll
         self.doubleAfterSplit = doubleAfterSplit
+        super.init(id: GameFunctions.createNewID(10))
     }
     
     public func addCurrentCard(_ card: Card) {
