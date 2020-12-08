@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1ABBDFF814316FE802FFCD66 /* Pods_counterjack_counterjackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F7A39667D224247B0D362F /* Pods_counterjack_counterjackUITests.framework */; };
 		3C2B628AC12CB3A403A56E65 /* Pods_counterjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4A59E4441AF10C576698CD /* Pods_counterjack.framework */; };
 		97FE7D9830DF4DF56B1B87F9 /* Pods_counterjackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E354A64DEB4B7C73369AE57 /* Pods_counterjackTests.framework */; };
 		E70F2AB3257E997400B2AFD8 /* PlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70F2AB2257E997400B2AFD8 /* PlayerInterface.swift */; };
@@ -19,7 +18,6 @@
 		E7186D592558181100CF6A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7186D582558181100CF6A81 /* Assets.xcassets */; };
 		E7186D5C2558181100CF6A81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7186D5A2558181100CF6A81 /* LaunchScreen.storyboard */; };
 		E7186D672558181100CF6A81 /* counterjackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D662558181100CF6A81 /* counterjackTests.swift */; };
-		E7186D722558181100CF6A81 /* counterjackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D712558181100CF6A81 /* counterjackUITests.swift */; };
 		E7186D832558232800CF6A81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7186D822558232800CF6A81 /* LoginViewController.swift */; };
 		E71CDDD4257A27AB00D17C0B /* NewGameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71CDDD3257A27AB00D17C0B /* NewGameSettingsViewController.swift */; };
 		E71CDDD6257A315600D17C0B /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71CDDD5257A315600D17C0B /* StartGameViewController.swift */; };
@@ -27,6 +25,7 @@
 		E73630BA256ED60F0013FD09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73630B9256ED60F0013FD09 /* Game.swift */; };
 		E73630BC257088650013FD09 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73630BB257088650013FD09 /* Post.swift */; };
 		E749AF5B256C1F1A00908E1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749AF5A256C1F1A00908E1A /* User.swift */; };
+		E76A504E257FC85A008214DC /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76A504D257FC85A008214DC /* GameTests.swift */; };
 		E78AE04F2569CD49004BF1CA /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE04E2569CD49004BF1CA /* Action.swift */; };
 		E78AE051256AFF53004BF1CA /* DatabaseCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE050256AFF53004BF1CA /* DatabaseCalls.swift */; };
 		E78AE053256B037A004BF1CA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE052256B037A004BF1CA /* HomeViewController.swift */; };
@@ -34,16 +33,12 @@
 		E78AE057256B039F004BF1CA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78AE056256B039F004BF1CA /* ProfileViewController.swift */; };
 		E7B75A0525596AA5008D5136 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7B75A0425596AA5008D5136 /* GoogleService-Info.plist */; };
 		E7B75A0625596AA5008D5136 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7B75A0425596AA5008D5136 /* GoogleService-Info.plist */; };
-		E7B75A0725596AA5008D5136 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7B75A0425596AA5008D5136 /* GoogleService-Info.plist */; };
 		E7B75A0925596DE3008D5136 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0825596DE3008D5136 /* Constants.swift */; };
 		E7B75A0A25596DE3008D5136 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0825596DE3008D5136 /* Constants.swift */; };
-		E7B75A0B25596DE3008D5136 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0825596DE3008D5136 /* Constants.swift */; };
 		E7B75A0D25598089008D5136 /* SignUp1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0C25598089008D5136 /* SignUp1ViewController.swift */; };
 		E7B75A0E25598089008D5136 /* SignUp1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0C25598089008D5136 /* SignUp1ViewController.swift */; };
-		E7B75A0F25598089008D5136 /* SignUp1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A0C25598089008D5136 /* SignUp1ViewController.swift */; };
 		E7B75A112559809B008D5136 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A102559809B008D5136 /* SignUp2ViewController.swift */; };
 		E7B75A122559809B008D5136 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A102559809B008D5136 /* SignUp2ViewController.swift */; };
-		E7B75A132559809B008D5136 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B75A102559809B008D5136 /* SignUp2ViewController.swift */; };
 		E7C3F2C32561DD3000A4C4F9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C3F2C22561DD3000A4C4F9 /* Player.swift */; };
 		E7C3F2C52561E4C700A4C4F9 /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C3F2C42561E4C700A4C4F9 /* AI.swift */; };
 		E7C3F2C72561E5D500A4C4F9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C3F2C62561E5D500A4C4F9 /* Card.swift */; };
@@ -57,13 +52,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		E7186D632558181100CF6A81 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E7186D412558180D00CF6A81 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E7186D482558180D00CF6A81;
-			remoteInfo = counterjack;
-		};
-		E7186D6E2558181100CF6A81 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E7186D412558180D00CF6A81 /* Project object */;
 			proxyType = 1;
@@ -94,9 +82,6 @@
 		E7186D622558181100CF6A81 /* counterjackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = counterjackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7186D662558181100CF6A81 /* counterjackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = counterjackTests.swift; sourceTree = "<group>"; };
 		E7186D682558181100CF6A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7186D6D2558181100CF6A81 /* counterjackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = counterjackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7186D712558181100CF6A81 /* counterjackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = counterjackUITests.swift; sourceTree = "<group>"; };
-		E7186D732558181100CF6A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7186D822558232800CF6A81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E71CDDD3257A27AB00D17C0B /* NewGameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameSettingsViewController.swift; sourceTree = "<group>"; };
 		E71CDDD5257A315600D17C0B /* StartGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +89,7 @@
 		E73630B9256ED60F0013FD09 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		E73630BB257088650013FD09 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E749AF5A256C1F1A00908E1A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E76A504D257FC85A008214DC /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		E78AE04E2569CD49004BF1CA /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		E78AE050256AFF53004BF1CA /* DatabaseCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCalls.swift; sourceTree = "<group>"; };
 		E78AE052256B037A004BF1CA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -142,14 +128,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7186D6A2558181100CF6A81 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1ABBDFF814316FE802FFCD66 /* Pods_counterjack_counterjackUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -181,7 +159,6 @@
 			children = (
 				E7186D4B2558180D00CF6A81 /* counterjack */,
 				E7186D652558181100CF6A81 /* counterjackTests */,
-				E7186D702558181100CF6A81 /* counterjackUITests */,
 				E7186D4A2558180D00CF6A81 /* Products */,
 				32EB4EF3F0C0D3BB27FC19D5 /* Pods */,
 				4F173D26813084BE9C4FF5C4 /* Frameworks */,
@@ -193,7 +170,6 @@
 			children = (
 				E7186D492558180D00CF6A81 /* counterjack.app */,
 				E7186D622558181100CF6A81 /* counterjackTests.xctest */,
-				E7186D6D2558181100CF6A81 /* counterjackUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,17 +203,9 @@
 				E7C3F2CE2564733B00A4C4F9 /* AITests.swift */,
 				E7C3F2D02564734D00A4C4F9 /* DealerTests.swift */,
 				E7C3F2D22564736100A4C4F9 /* PlayerTests.swift */,
+				E76A504D257FC85A008214DC /* GameTests.swift */,
 			);
 			path = counterjackTests;
-			sourceTree = "<group>";
-		};
-		E7186D702558181100CF6A81 /* counterjackUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E7186D712558181100CF6A81 /* counterjackUITests.swift */,
-				E7186D732558181100CF6A81 /* Info.plist */,
-			);
-			path = counterjackUITests;
 			sourceTree = "<group>";
 		};
 		E7186D7F2558181E00CF6A81 /* Models */ = {
@@ -322,26 +290,6 @@
 			productReference = E7186D622558181100CF6A81 /* counterjackTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E7186D6C2558181100CF6A81 /* counterjackUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E7186D7C2558181100CF6A81 /* Build configuration list for PBXNativeTarget "counterjackUITests" */;
-			buildPhases = (
-				9DB5BA091611F68AF7FD248B /* [CP] Check Pods Manifest.lock */,
-				E7186D692558181100CF6A81 /* Sources */,
-				E7186D6A2558181100CF6A81 /* Frameworks */,
-				E7186D6B2558181100CF6A81 /* Resources */,
-				E059841BD7D02760AC303E0E /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E7186D6F2558181100CF6A81 /* PBXTargetDependency */,
-			);
-			name = counterjackUITests;
-			productName = counterjackUITests;
-			productReference = E7186D6D2558181100CF6A81 /* counterjackUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -356,10 +304,6 @@
 						CreatedOnToolsVersion = 11.1;
 					};
 					E7186D612558181100CF6A81 = {
-						CreatedOnToolsVersion = 11.1;
-						TestTargetID = E7186D482558180D00CF6A81;
-					};
-					E7186D6C2558181100CF6A81 = {
 						CreatedOnToolsVersion = 11.1;
 						TestTargetID = E7186D482558180D00CF6A81;
 					};
@@ -380,7 +324,6 @@
 			targets = (
 				E7186D482558180D00CF6A81 /* counterjack */,
 				E7186D612558181100CF6A81 /* counterjackTests */,
-				E7186D6C2558181100CF6A81 /* counterjackUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -405,39 +348,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7186D6B2558181100CF6A81 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E7B75A0725596AA5008D5136 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9DB5BA091611F68AF7FD248B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-counterjack-counterjackUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B8CA37CBBBB2D60E9027C78E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,23 +388,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E059841BD7D02760AC303E0E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-counterjack-counterjackUITests/Pods-counterjack-counterjackUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-counterjack-counterjackUITests/Pods-counterjack-counterjackUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-counterjack-counterjackUITests/Pods-counterjack-counterjackUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF7B7B91C79394CB35B77912 /* [CP] Check Pods Manifest.lock */ = {
@@ -556,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7C3F2CD256469FA00A4C4F9 /* DeckTests.swift in Sources */,
+				E76A504E257FC85A008214DC /* GameTests.swift in Sources */,
 				E7B75A0E25598089008D5136 /* SignUp1ViewController.swift in Sources */,
 				E7C3F2D12564734D00A4C4F9 /* DealerTests.swift in Sources */,
 				E7B75A122559809B008D5136 /* SignUp2ViewController.swift in Sources */,
@@ -566,17 +463,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7186D692558181100CF6A81 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E7B75A0F25598089008D5136 /* SignUp1ViewController.swift in Sources */,
-				E7B75A132559809B008D5136 /* SignUp2ViewController.swift in Sources */,
-				E7186D722558181100CF6A81 /* counterjackUITests.swift in Sources */,
-				E7B75A0B25596DE3008D5136 /* Constants.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -584,11 +470,6 @@
 			isa = PBXTargetDependency;
 			target = E7186D482558180D00CF6A81 /* counterjack */;
 			targetProxy = E7186D632558181100CF6A81 /* PBXContainerItemProxy */;
-		};
-		E7186D6F2558181100CF6A81 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E7186D482558180D00CF6A81 /* counterjack */;
-			targetProxy = E7186D6E2558181100CF6A81 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -810,48 +691,6 @@
 			};
 			name = Release;
 		};
-		E7186D7D2558181100CF6A81 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBC00064BB18A4C6A95A92EC /* Pods-counterjack-counterjackUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 24WP5N7FF2;
-				INFOPLIST_FILE = counterjackUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samson.counterjackUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = counterjack;
-			};
-			name = Debug;
-		};
-		E7186D7E2558181100CF6A81 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4AA57AB3FB063FB749BE47CD /* Pods-counterjack-counterjackUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 24WP5N7FF2;
-				INFOPLIST_FILE = counterjackUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samson.counterjackUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = counterjack;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -878,15 +717,6 @@
 			buildConfigurations = (
 				E7186D7A2558181100CF6A81 /* Debug */,
 				E7186D7B2558181100CF6A81 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E7186D7C2558181100CF6A81 /* Build configuration list for PBXNativeTarget "counterjackUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E7186D7D2558181100CF6A81 /* Debug */,
-				E7186D7E2558181100CF6A81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-//import RealmSwift
+
 
 class SignUp2ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -21,6 +21,7 @@ class SignUp2ViewController: UIViewController, UIImagePickerControllerDelegate, 
     var email: String!
     //var addProfileImage: Bool = false
     var image: UIImage? = nil
+    //var call = DatabaseCalls()
     //let realm = try! Realm()
     
     private var imagePicker = UIImagePickerController()
@@ -82,6 +83,8 @@ class SignUp2ViewController: UIViewController, UIImagePickerControllerDelegate, 
                                    
                         
                         let storageRef = Storage.storage().reference(forURL: "gs://counterjack-blackjack.appspot.com")
+                        
+                        
                         let storageLink = DatabaseCalls.randomStorageRefGenerator()
                         let storageProfileRef = storageRef.child(id).child("Profile").child(storageLink)
                                        

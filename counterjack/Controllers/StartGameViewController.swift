@@ -84,7 +84,15 @@ class StartGameViewController: UIViewController {
         }
         
         
-        
+        let count = game!.addPlayerCard(topCard!)
+        if count > 21 {
+            self.hitButton.isEnabled = false
+        } else if count == 21 {
+            //smth
+            let alert = UIAlertController(title: "Alert", message: "Blackjack", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         self.hitCount += 1
     }
     

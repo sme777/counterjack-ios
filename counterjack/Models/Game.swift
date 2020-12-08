@@ -9,12 +9,17 @@
 import Foundation
 
 class Game {
+    private var seats: Int = 9
+    private var takenSeats: Int!
     private var tablePositions: [Int] = []
     private var deck: Deck!
     private var cards: Array<Card>!
+    private var dealer: Dealer!
+    private var dealerCards = Array<Card>()
     private var ais: Array<AI>!
     private var players: Array<Player>!
     private var playerCards = [Player : Array<Card>]()
+    private var aiCards = [AI :Array<Card>]()
     private var playerQueue: [PlayerInterface] = []
     //private var playersCards:
     
@@ -23,7 +28,10 @@ class Game {
         self.ais = makeAIs(1)
         self.players = makePlayers(1)
         self.cards = self.deck.getRandomDeck()
-        self.tablePositions.append(3)
+        self.dealer = Dealer()
+        self.takenSeats = 2
+        self.tablePositions.append(2)
+        self.orderPlayer()
     }
     
     init(deckNumber: Int) {
@@ -31,7 +39,10 @@ class Game {
         self.ais = makeAIs(1)
         self.players = makePlayers(1)
         self.cards = self.deck.getRandomDeck()
-        self.tablePositions.append(3)
+        self.dealer = Dealer()
+        self.takenSeats = 2
+        self.tablePositions.append(2)
+        self.orderPlayer()
     }
     
     init(deckNumber: Int, aiNumber: Int) {
@@ -39,7 +50,10 @@ class Game {
         self.ais = makeAIs(aiNumber)
         self.players = makePlayers(1)
         self.cards = self.deck.getRandomDeck()
-        self.tablePositions.append(3)
+        self.dealer = Dealer()
+        self.takenSeats = 1 + aiNumber
+        self.tablePositions.append(2)
+        self.orderPlayer()
     }
     
     init(deckNumber: Int, aiNumber: Int, playerNumber: Int) {
@@ -47,7 +61,10 @@ class Game {
         self.ais = makeAIs(aiNumber)
         self.players = makePlayers(playerNumber)
         self.cards = self.deck.getRandomDeck()
-        self.tablePositions.append(3)
+        self.dealer = Dealer()
+        self.takenSeats = playerNumber + aiNumber
+        self.tablePositions.append(2)
+        self.orderPlayer()
     }
     
     init(deckNumber: Int, aiNumber: Int, playerNumber: Int, positions: Int...) {
@@ -55,7 +72,10 @@ class Game {
         self.ais = makeAIs(aiNumber)
         self.players = makePlayers(playerNumber)
         self.cards = self.deck.getRandomDeck()
+        self.dealer = Dealer()
+        self.takenSeats = playerNumber + aiNumber
         self.tablePositions = positions
+        self.orderPlayer()
     }
     
     private func makeDeck(_ numberOfDecks: Int) -> Deck {
@@ -70,6 +90,7 @@ class Game {
         while count != 0 {
             let ai = AI()
             listOfAIs.append(ai)
+            aiCards[ai] = []
             count -= 1
         }
         return listOfAIs
@@ -89,9 +110,48 @@ class Game {
         return listOfPlayer
     }
     
-    public func addPlayerCard(_ card: Card) {
-        
+    
+    private func orderPlayer() {
+        var tempPlayers = players
+        var tempAIs = ais
+        for i in 0..<self.takenSeats {
+            if tablePositions.contains(i+1) {
+                playerQueue.append(tempPlayers!.popLast()!)
+            } else {
+                playerQueue.append(tempAIs!.popLast()!)
+                
+            }
+        }
+        playerQueue.append(dealer)
     }
+    
+    public func addPlayerCard(_ card: Card) -> Int {
+        let turnPlayer = playerQueue[0]
+        if turnPlayer is Player {
+            let player = turnPlayer as! Player
+            playerCards[player]?.append(card)
+            let count = GameFunctions.count(playerCards[player]!)
+            if count > 21 {
+                playerQueue.remove(at: 0)
+            }
+            return count
+            
+        } else if turnPlayer is AI {
+            let ai = turnPlayer as! AI
+            aiCards[ai]?.append(card)
+            let count = GameFunctions.count(aiCards[ai]!)
+            if count > 21 {
+                playerQueue.remove(at: 0)
+            }
+            return count
+        } else {
+            dealerCards.append(card)
+            let count = GameFunctions.count(dealerCards)
+            return count
+        }
+    }
+    
+    
     
 //    public func getCurrentPlayer() -> Player {
 //        
@@ -104,5 +164,13 @@ class Game {
     
     public func getDeckCount() -> Int {
         return deck.getNumberOfDecks() * 52
+    }
+    
+    public func getPlayerOrder() -> [PlayerInterface] {
+        return playerQueue
+    }
+    
+    public func getPlayers() -> [Player] {
+        return players
     }
 }
