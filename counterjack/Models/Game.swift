@@ -25,23 +25,23 @@ class Game {
     
     init() {
         self.deck = makeDeck(1)
-        self.ais = makeAIs(1)
+        //self.ais = makeAIs(1)
         self.players = makePlayers(1)
         self.cards = self.deck.getRandomDeck()
         self.dealer = Dealer()
-        self.takenSeats = 2
-        self.tablePositions.append(2)
+        self.takenSeats = 1
+        self.tablePositions.append(1)
         self.orderPlayer()
     }
     
     init(deckNumber: Int) {
         self.deck = makeDeck(deckNumber)
-        self.ais = makeAIs(1)
+        //self.ais = makeAIs(1)
         self.players = makePlayers(1)
         self.cards = self.deck.getRandomDeck()
         self.dealer = Dealer()
-        self.takenSeats = 2
-        self.tablePositions.append(2)
+        self.takenSeats = 1
+        self.tablePositions.append(1)
         self.orderPlayer()
     }
     
@@ -125,7 +125,7 @@ class Game {
         playerQueue.append(dealer)
     }
     
-    public func addPlayerCard(_ card: Card) -> Int {
+    public func addPlayerCard(_ card: Card, initial: Bool = false) -> Int {
         let turnPlayer = playerQueue[0]
         if turnPlayer is Player {
             let player = turnPlayer as! Player
@@ -133,6 +133,9 @@ class Game {
             let count = GameFunctions.count(playerCards[player]!)
             if count > 21 {
                 playerQueue.remove(at: 0)
+            } else if initial {
+                let pl = playerQueue.remove(at: 0)
+                playerQueue.append(pl)
             }
             return count
             
@@ -142,20 +145,41 @@ class Game {
             let count = GameFunctions.count(aiCards[ai]!)
             if count > 21 {
                 playerQueue.remove(at: 0)
+            } else if initial {
+                let pl = playerQueue.remove(at: 0)
+                playerQueue.append(pl)
             }
             return count
         } else {
             dealerCards.append(card)
+            if initial {
+                let pl = playerQueue.remove(at: 0)
+                playerQueue.append(pl)
+            }
             let count = GameFunctions.count(dealerCards)
             return count
         }
     }
     
+    public func removeFromQueue() {
+        playerQueue.remove(at: 0)
+    }
     
+    public func getDealerCards() -> Array<Card> {
+        return dealerCards
+    }
     
-//    public func getCurrentPlayer() -> Player {
-//        
-//    }
+    public func getLastDealerCard() -> Card {
+        return dealerCards[dealerCards.endIndex - 1]
+    }
+    
+    public func getCurrentPlayerInterface() -> PlayerInterface {
+        return playerQueue[0]
+    }
+    
+    public func getDealer() -> PlayerInterface {
+        return dealer
+    }
     
     public func popTopCard() -> Card {
         return cards.remove(at: 0)

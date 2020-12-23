@@ -18,7 +18,8 @@ class StartGameViewController: UIViewController {
     @IBOutlet weak var doubleButton: UIButton!
     @IBOutlet weak var hitButton: UIButton!
     var game: Game? = nil
-    var uicards: Array<UIView> = []
+    var uicardsRemaining: Array<UIView> = []
+    var uicardsInPlay: [PlayerInterface : Array<UIView>] = [:]
     var hitCount = 0
     var firstRow = 0
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class StartGameViewController: UIViewController {
         
         configureButtons()
         loadDeck()
+        distributeCards()
         
     }
     
@@ -40,6 +42,33 @@ class StartGameViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
+    
+    func distributeCards() {
+
+
+        
+        hitButtonPressed(hitButton, initial: true)
+        //let _ = game?.addPlayerCard()
+        
+        let topCard = game?.popTopCard()
+        let topCardView = uicardsRemaining.remove(at: uicardsRemaining.endIndex - 1)
+        
+        uicardsInPlay[(game?.getDealer())!] = [topCardView]
+        let frontImage = UIImage(named: topCard!.face + topCard!.suit)
+        let frontImageView = UIImageView(image: frontImage!)
+        frontImageView.frame = topCardView.subviews[0].frame
+        let _ = game?.addPlayerCard(topCard!, initial: true)
+        animateCard(x: 135, y: 100, front: frontImageView, back: topCardView)
+        
+        hitButtonPressed(hitButton, initial: true)
+        
+        let topCard2 = game?.popTopCard()
+        let topCardView2 = uicardsRemaining.remove(at: uicardsRemaining.endIndex - 1)
+        uicardsInPlay[(game?.getDealer())!]!.append(topCardView2)
+        let _ = game?.addPlayerCard(topCard2!, initial: true)
+        animateCard(x: 145, y: 100, front: nil, back: topCardView2, willFlip: false)
+        
+    }
     
     func configureButtons() {
         splitButton.isEnabled = false
@@ -57,34 +86,41 @@ class StartGameViewController: UIViewController {
             
             let someView = UIView(frame: rect)
             someView.addSubview(backImageView)
-            uicards.append(someView)
+            uicardsRemaining.append(someView)
             view.addSubview(someView)
         }
     }
     
-    @IBAction func hitButtonPressed(_ sender: UIButton) {
-        let topCard = game?.popTopCard()
-        let topCardView = uicards.remove(at: uicards.endIndex - 1)
-        
-        let frontImage = UIImage(named: topCard!.face + topCard!.suit)
-        let frontImageView = UIImageView(image: frontImage!)
-        frontImageView.frame = topCardView.subviews[0].frame
-        
+    func animateCard(x: CGFloat, y: CGFloat, front: UIImageView?, back: UIView, willFlip: Bool = true, willRotate: Bool = false) {
         UIView.animate(withDuration: 2, animations: {
-            if self.hitCount > 3 {
-                topCardView.frame.origin.y += 620
-            } else {
-                topCardView.frame.origin.y += 550
+            
+            if willRotate {
+                back.transform = CGAffineTransform(rotationAngle: (90 * .pi) / 180)
             }
-            topCardView.frame.origin.x += (125 + CGFloat(self.hitCount % 4) * 25)
-            self.view.bringSubviewToFront(topCardView)
+            
+            if self.hitCount > 3 {
+                back.frame.origin.y += 620
+            } else {
+                back.frame.origin.y += y
+            }
+            back.frame.origin.x += (x + CGFloat(self.hitCount % 4) * 25)
+            self.view.bringSubviewToFront(back)
             
         }) { (trans) in
-            UIView.transition(from: topCardView.subviews[0], to: frontImageView, duration: 0.3, options: .transitionFlipFromLeft, completion: nil)
+            if willFlip {
+                UIView.transition(from: back.subviews[0], to: front!, duration: 0.3, options: .transitionFlipFromLeft, completion: nil)
+            }
+        }
+    }
+    
+    func calculateAction(card: Card, double: Bool = false, initial: Bool = false) {
+        let count = game!.addPlayerCard(card, initial: initial)
+        
+        if double {
+            self.hitButton.isEnabled = false
+            self.doubleButton.isEnabled = false
         }
         
-        
-        let count = game!.addPlayerCard(topCard!)
         if count > 21 {
             self.hitButton.isEnabled = false
         } else if count == 21 {
@@ -93,10 +129,75 @@ class StartGameViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+        
+        
+    }
+    
+    func dealRest() {
+        let delearUICards = uicardsInPlay[game!.getDealer()]
+        let lastCard = game!.getLastDealerCard()
+        let frontImage = UIImage(named: lastCard.face + lastCard.suit)
+        let frontImageView = UIImageView(image: frontImage!)
+        frontImageView.frame = delearUICards![1].subviews[0].frame
+        UIView.transition(from: delearUICards![1].subviews[0], to: frontImageView, duration: 0.3, options: .transitionFlipFromTop, completion: nil)
+        
+        
+        while GameFunctions.count((game?.getDealerCards())!) < 17 {
+            let topCard = game?.popTopCard()
+            let topCardView = uicardsRemaining.remove(at: uicardsRemaining.endIndex - 1)
+            
+            uicardsInPlay[(game?.getDealer())!]!.append(topCardView)
+            let frontImage = UIImage(named: topCard!.face + topCard!.suit)
+            let frontImageView = UIImageView(image: frontImage!)
+            frontImageView.frame = topCardView.subviews[0].frame
+            let _ = game?.addPlayerCard(topCard!, initial: true)
+            animateCard(x: 135, y: 100, front: frontImageView, back: topCardView)
+            let _ = game?.addPlayerCard(topCard!)
+        }
+    }
+    
+    
+    @IBAction func hitButtonPressed(_ sender: UIButton, initial: Bool = false) {
+        let topCard = game?.popTopCard()
+        let topCardView = uicardsRemaining.remove(at: uicardsRemaining.endIndex - 1)
+        let currPlayer = game!.getCurrentPlayerInterface()
+        if uicardsInPlay[currPlayer] == nil {
+            uicardsInPlay[currPlayer] = [topCardView]
+        } else {
+            uicardsInPlay[currPlayer]?.append(topCardView)
+        }
+        //uicardsInPlay.append(topCardView)
+        let frontImage = UIImage(named: topCard!.face + topCard!.suit)
+        let frontImageView = UIImageView(image: frontImage!)
+        frontImageView.frame = topCardView.subviews[0].frame
+        //let _ = game?.addPlayerCard(topCard!, initial: initial)
+        animateCard(x: 125, y: 550, front: frontImageView, back: topCardView)
+        
+        calculateAction(card: topCard!, initial: initial)
+
         self.hitCount += 1
     }
     
+    
     @IBAction func doubleButtonPressed(_ sender: UIButton) {
+        
+        let topCard = game?.popTopCard()
+        let topCardView = uicardsRemaining.remove(at: uicardsRemaining.endIndex - 1)
+        let currPlayer = game!.getCurrentPlayerInterface()
+        if uicardsInPlay[currPlayer] == nil {
+            uicardsInPlay[currPlayer] = [topCardView]
+        } else {
+            uicardsInPlay[currPlayer]?.append(topCardView)
+        }
+        let frontImage = UIImage(named: topCard!.face + topCard!.suit)
+        let frontImageView = UIImageView(image: frontImage!)
+        frontImageView.frame = topCardView.subviews[0].frame
+        
+        animateCard(x: 125, y: 550, front: frontImageView, back: topCardView, willFlip: true, willRotate: true)
+        //let _ = game?.addPlayerCard(topCard!)
+        calculateAction(card: topCard!, double: true)
+        game?.removeFromQueue()
+        dealRest()
     }
     
     @IBAction func standButtonPressed(_ sender: UIButton) {
