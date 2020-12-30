@@ -17,6 +17,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var checkbox: UIImageView!
     var isChecked: Bool = false
     override func viewDidLoad() {
+        
+        
+        
+        newGameButton.layer.cornerRadius = newGameButton.frame.size.height / 4
+        lastGameButton.layer.cornerRadius = lastGameButton.frame.size.height / 4
+        playOnlineButton.layer.cornerRadius = playOnlineButton.frame.size.height / 4
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.checkboxSelect))
         checkbox.addGestureRecognizer(tap)
         checkbox.isUserInteractionEnabled = true

@@ -500,33 +500,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evj-fK-qk0">
-                                <rect key="frame" x="107" y="327" width="200" height="30"/>
+                                <rect key="frame" x="107" y="310" width="200" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New Game"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.15686274510000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="newGameButtonPressed:" destination="FNq-Xf-9Ih" eventType="touchUpInside" id="kic-44-Wok"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-hO-VKk">
-                                <rect key="frame" x="158" y="511" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play Online"/>
-                                <connections>
-                                    <action selector="playOnlineButtonPressed:" destination="FNq-Xf-9Ih" eventType="touchUpInside" id="fAZ-Z9-f5Y"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uav-J1-zjv">
-                                <rect key="frame" x="170" y="419" width="74" height="30"/>
+                                <rect key="frame" x="107" y="419" width="200" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Last Game"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Last Game">
+                                    <color key="titleColor" red="0.1333333333" green="0.15686274510000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="lastGameButtonPressed:" destination="FNq-Xf-9Ih" eventType="touchUpInside" id="32I-2C-Gwk"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unchecked_checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="cxQ-tX-Y7h">
-                                <rect key="frame" x="259" y="373" width="30" height="30"/>
+                                <rect key="frame" x="322" y="373" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Always start a new game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aI-C9-b0P">
+                                <rect key="frame" x="112" y="378" width="190" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-hO-VKk">
+                                <rect key="frame" x="107" y="497" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Play Online">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="playOnlineButtonPressed:" destination="FNq-Xf-9Ih" eventType="touchUpInside" id="fAZ-Z9-f5Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cl4-OJ-wxQ"/>
@@ -717,7 +733,26 @@
                                 <color key="tintColor" red="0.1333333333" green="0.15686274510000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="HIT"/>
                                 <connections>
-                                    <action selector="hitButtonPressed:" destination="I4f-r6-aYm" eventType="touchUpInside" id="EyL-qu-sHB"/>
+                                    <action selector="hitButtonPressed:initial:" destination="I4f-r6-aYm" eventType="touchUpInside" id="g4s-hW-YnG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You Won!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7d-zG-NB0">
+                                <rect key="frame" x="161" y="416" width="99" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdw-P1-LZm">
+                                <rect key="frame" x="142" y="464" width="144" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.28627450980000002" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Again!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="againButtonPressed:" destination="I4f-r6-aYm" eventType="touchUpInside" id="0ah-9D-GjF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -732,8 +767,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="xl1-Zh-nTY"/>
                     <connections>
+                        <outlet property="againButton" destination="Qdw-P1-LZm" id="LCL-8o-l85"/>
                         <outlet property="doubleButton" destination="9AP-Fz-A9U" id="5Xa-rH-Ts5"/>
                         <outlet property="hitButton" destination="BqM-uo-mrs" id="y9b-xo-Fy9"/>
+                        <outlet property="roundResultLabel" destination="r7d-zG-NB0" id="ssq-DF-YnO"/>
                         <outlet property="sideBetsButton" destination="I7g-Kk-bN4" id="4xC-bk-BbP"/>
                         <outlet property="splitButton" destination="AJl-7h-aeZ" id="HqV-Gp-2cf"/>
                         <outlet property="standButton" destination="7qg-BV-9I8" id="9fC-xg-7cs"/>
@@ -1006,6 +1043,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Y2l-lj-6JF"/>
-        <segue reference="Mmc-dA-RfT"/>
+        <segue reference="bMt-14-u7w"/>
     </inferredMetricsTieBreakers>
 </document>
